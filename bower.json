@@ -1,0 +1,21 @@
+{
+  "name": "takeTimes",
+  "version": "1.0.0",
+  "authors": [
+    "shenxl <shen.sxl@icloud.com>"
+  ],
+  "description": "takeTimes",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "https://github.com/shenxl/60hours",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
