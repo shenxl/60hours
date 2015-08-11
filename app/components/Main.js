@@ -2,19 +2,34 @@ var React = require('react');
 var RouteHandler = require('react-router').RouteHandler;
 
 var Main = React.createClass({
-   render:function(){
-       return (
-           <div className="main-container">
-               <nav className="navbar navbar-default" role="navigation">
-                   <div className="col-sm-7 col-sm-offset-2" style={{marginTop:15}}>
-                   菜单
-                   </div>
-               </nav>
-               <div className="container">
-                   <RouteHandler />
-               </div>
-           </div>
-       )
-   }
+    render: function () {
+        return (
+            <div>
+                <header className="cd-header">
+                    <a href="#" className="cd-3d-nav-trigger">
+                        Menu
+                        <span></span>
+                    </a>
+                </header>
+
+                <main>
+                    <RouteHandler />
+                </main>
+
+                <nav className="cd-3d-nav-container">
+                    <ul className="cd-3d-nav">
+                        <li className="cd-selected">
+                            <a href="#">我的里程</a>
+                        </li>
+
+                        <li>
+                            <a href="#">同伴里程</a>
+                        </li>
+                    </ul>
+                    <span className="cd-marker color-1"></span>
+                </nav>
+            </div>
+        )
+    }
 });
 module.exports = Main;
