@@ -1,5 +1,6 @@
 var React = require('react');
 var TimelineContainer = require('./TimeLine/TimelineContainer');
+var CreateRecord  =require('./Record/CreateRecord');
 
 var Home = React.createClass({
 
@@ -22,6 +23,7 @@ var Home = React.createClass({
 
         return (
             <div>
+                <CreateRecord />
                 <TimelineContainer todoList={this.state.todoList} />
             </div>
         )

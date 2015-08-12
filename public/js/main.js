@@ -1,5 +1,4 @@
 jQuery(document).ready(function($){
-	debugger;
 	var timelineBlocks = $('.cd-timeline-block'),
 		offset = 0.8;
 
@@ -26,7 +25,7 @@ jQuery(document).ready(function($){
 	}
 
 
-	//µ¼º½Ìõ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	$('.cd-3d-nav-trigger').on('click', function(){
 		toggle3dBlock(!$('.cd-header').hasClass('nav-is-visible'));
 	});
@@ -79,5 +78,24 @@ jQuery(document).ready(function($){
 		});
 		return this;
 	};
+
+
+	if( $('.floating-labels').length > 0 ) floatLabels();
+
+	function floatLabels() {
+		var inputFields = $('.floating-labels .cd-label').next();
+		inputFields.each(function(){
+			var singleInput = $(this);
+			//check if user is filling one of the form fields
+			checkVal(singleInput);
+			singleInput.on('change keyup', function(){
+				checkVal(singleInput);
+			});
+		});
+	}
+
+	function checkVal(inputField) {
+		( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
+	}
 
 });

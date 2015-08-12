@@ -1,5 +1,7 @@
 var React = require('react');
 var TimelineBlock = require('./TimelineBlock');
+var AddRecord = require('./AddRecord');
+require('../../assets/styles/timeLine.scss');
 
 
 var TimelineContainer = React.createClass({
@@ -14,6 +16,7 @@ var TimelineContainer = React.createClass({
         return (
             <div>
                 <section id="cd-timeline" className="cd-container">
+                    <AddRecord />
                     {todoItem}
                 </section>
             </div>
