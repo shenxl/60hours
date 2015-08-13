@@ -13,6 +13,16 @@ Form
 
 -------------------------------- */
 
+.cd-record{
+  width: 100%;
+  max-width: $M; // breakpoints inside partials > _layout.scss
+  margin: 4em auto;
+  background: #aab7ab;
+  padding: 3em;
+  @include rounded-corners;
+
+}
+
 .cd-form {
   width: 90%;
   max-width: $M; // breakpoints inside partials > _layout.scss

@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
 	}
 
 
-	//������
+	// 3D导航控制
 	$('.cd-3d-nav-trigger').on('click', function(){
 		toggle3dBlock(!$('.cd-header').hasClass('nav-is-visible'));
 	});

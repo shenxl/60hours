@@ -141,6 +141,9 @@ Main components
 
   &.cd-add {
     background: $color-5;
+    img{
+      background: url('../img/cd-icon-add.svg') no-repeat center center;
+    }
   }
 
   @include MQ(L) {

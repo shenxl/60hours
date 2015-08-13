@@ -16,6 +16,13 @@
   border-radius: $radius;
 }
 
+// ¿çä¯ÀÀÆ÷Ô²½Ç±ß¿ò
+@mixin rounded-corners {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
 
 // center vertically and/or horizontally an absolute positioned element
 

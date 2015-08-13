@@ -9,7 +9,7 @@ var AddRecord = React.createClass({
 		return (
             <div className="cd-timeline-block add-child">
                 <div className="cd-timeline-img cd-add" onClick={this.handleAdd}>
-                    <img src="img/cd-icon-add.svg" alt=""/>
+                    <img src="" alt=""/>
                 </div>
             </div>
 		);

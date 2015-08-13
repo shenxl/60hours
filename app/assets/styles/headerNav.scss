@@ -56,6 +56,7 @@ Main Components
   margin: 0 auto;
   @include transition(transform $animation-duration);
   @include clearfix;
+  @include rounded-corners;
   /* Force Hardware Acceleration in WebKit */
   @include transform(translateZ(0));
   @include backface-visibility(hidden);
