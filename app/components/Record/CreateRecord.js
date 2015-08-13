@@ -1,4 +1,5 @@
 var React = require('react');
+var classnames = require('classnames');
 
 
 require('../../assets/styles/record.scss');
@@ -6,56 +7,58 @@ require('../../assets/styles/record.scss');
 var CreateRecord = React.createClass({
 
     render: function () {
+        var record_class=classnames({
+            "cd-record" : true,
+            "cd-not-active":true
+        })
         return (
-            <form className="cd-form floating-labels">
-                <fieldset>
-                    <legend>Project Info</legend>
+            <div className={record_class}>
+                <form className="cd-form floating-labels">
+                    <fieldset>
+                        <legend>今日达成情况</legend>
+                        <div className="icon">
+                            <label className="cd-label" for="cd-textarea">为了目标今天做了什么？</label>
+                            <textarea className="message" name="cd-textarea" id="cd-textarea" required></textarea>
+                        </div>
 
-                    <div>
-                        <h4>Budget</h4>
+                        <div>
+                            <h4>自我评价</h4>
 
-                        <p className="cd-select icon">
-                            <select className="budget">
-                                <option value="0">Select Budget</option>
-                                <option value="1">&lt; $5000</option>
-                                <option value="2">$5000 - $10000</option>
-                                <option value="3">&gt; $10000</option>
-                            </select>
-                        </p>
-                    </div>
+                            <p className="cd-select icon">
+                                <select className="budget">
+                                    <option value="0">状态非常棒</option>
+                                    <option value="1">感觉一般</option>
+                                    <option value="2">需要鼓励</option>
+                                </select>
+                            </p>
+                        </div>
 
-                    <div>
-                        <h4>Project type</h4>
+                        <div>
+                            <h4>执行时间</h4>
+                            <ul className="cd-form-list">
+                                <li>
+                                    <input type="radio" name="radio-button" id="cd-radio-1" checked/>
+                                    <label for="cd-radio-1">1小时</label>
+                                </li>
 
-                        <ul className="cd-form-list">
-                            <li>
-                                <input type="radio" name="radio-button" id="cd-radio-1" checked/>
-                                <label for="cd-radio-1">Choice 1</label>
-                            </li>
+                                <li>
+                                    <input type="radio" name="radio-button" id="cd-radio-2"/>
+                                    <label for="cd-radio-2">半小时</label>
+                                </li>
 
-                            <li>
-                                <input type="radio" name="radio-button" id="cd-radio-2"/>
-                                <label for="cd-radio-2">Choice 2</label>
-                            </li>
+                                <li>
+                                    <input type="radio" name="radio-button" id="cd-radio-3"/>
+                                    <label for="cd-radio-3">今天没能继续</label>
+                                </li>
+                            </ul>
+                        </div>
 
-                            <li>
-                                <input type="radio" name="radio-button" id="cd-radio-3"/>
-                                <label for="cd-radio-3">Choice 3</label>
-                            </li>
-                        </ul>
-                    </div>
-
-
-                    <div className="icon">
-                        <label className="cd-label" for="cd-textarea">Project description</label>
-                        <textarea className="message" name="cd-textarea" id="cd-textarea" required></textarea>
-                    </div>
-
-                    <div>
-                        <input type="submit" value="Send Message"/>
-                    </div>
-                </fieldset>
-            </form>
+                        <div>
+                            <input type="submit" value="记录"/>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
         );
     }
 

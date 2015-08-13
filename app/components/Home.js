@@ -17,13 +17,14 @@ var Home = React.createClass({
                 title: "Title of section " + i,
                 details: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut." +
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.",
-                dateTime: "Jan " + i
+                dateTime: "Jan " + i,
+                status:i%3
             });
         }
 
         return (
             <div>
-                <CreateRecord />
+                <CreateRecord/>
                 <TimelineContainer todoList={this.state.todoList} />
             </div>
         )

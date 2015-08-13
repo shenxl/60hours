@@ -12,11 +12,22 @@
 Form
 
 -------------------------------- */
+.cd-record{
+  width:100%;
+  margin: 2em auto;
+  padding: 1em;
+  max-width: $M; // breakpoints inside partials > _layout.scss
+  background: $record-bg;
+  @include rounded-corners(10px);
+  &.cd-not-active{
+    display: none;
+  }
+}
 
 .cd-form {
   width: 90%;
   max-width: $M; // breakpoints inside partials > _layout.scss
-  margin: 4em auto;
+  margin: 2em auto;
 
   @include clearfix;
 

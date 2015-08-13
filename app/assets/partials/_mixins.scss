@@ -46,4 +46,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+// 边框圆角
+@mixin rounded-corners($corner) {
+  -moz-border-radius: $corner;
+  -webkit-border-radius: $corner;
+  border-radius: $corner;
+}
 
