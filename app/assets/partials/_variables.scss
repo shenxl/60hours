@@ -3,18 +3,22 @@
 $main-text: #7f8c97; // main text
 $link: #acb7c0; // anchor tags
 $background: #e9f0f5; // body background color
-$body-bg: #485274; // dark blue
+$body-bg: #c3c3c3; // dark blue
+$record-bg:#ffffff;
 $nav-container-bg: #000000; // black
 $nav-bg: darken($body-bg, 10%);
 $text-color: #ffffff; // white
 $header-bg:yellowgreen;
 
-$color-1: #303e49; // blue dark
+$color-1: #c3c3c3; // blue dark
 $color-2: #c03b44; // red
 $color-3: #ffffff; // white
 $color-4: #75ce66; // green
 $color-5: #f0ca45; // yellow
 
+$color-nav1: #33414a; // Limed Spruce
+$color-nav2: #7e4d7e; // Strikemaster
+$color-nav3: #ffffff; // White
 
 $color-form1: #2b3e51; // Pickled Bluewood
 $color-form2: #2c97de; // Curious Blue
@@ -25,7 +29,7 @@ $color-form5: #e94b35; // Cinnabar
 
 // fonts 
 
-$primary-font: 'Droid Serif', serif;
+$primary-font: 'PT Sans', sans-serif;
 $secondary-font: 'Open Sans', sans-serif;
 
 

@@ -104,15 +104,15 @@ Main components
   border-radius: 50%;
   box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05) ;
 
-  img {
+  span {
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 48px;
+    height: 48px;
     position: relative;
     left: 50%;
     top: 50%;
-    margin-left: -12px;
-    margin-top: -12px;
+    margin-left: -24px;
+    margin-top: -24px;
     transition: 1s;
   }
 
@@ -123,26 +123,43 @@ Main components
       left: 50%;
       margin-left: -40px;
     }
-
     cursor:pointer;
   }
 
-  &.cd-picture {
-    background: $color-4;
-  }
-
-  &.cd-movie {
-    background: $color-2;
-  }
-
-  &.cd-location {
+  &.cd-smile {
     background: $color-5;
+    span{
+      background:  url('../img/cd-icon-smile.svg') no-repeat center;
+    }
+  }
+
+  &.cd-sadly {
+    background: $color-4;
+    span{
+      background:  url('../img/cd-icon-sadly.svg') no-repeat center;
+    }
+  }
+
+  &.cd-face{
+    background: $color-2;
+    span{
+      background:  url('../img/cd-icon-face.svg') no-repeat center;
+    }
   }
 
   &.cd-add {
     background: $color-5;
-    img{
-      background: url('../img/cd-icon-add.svg') no-repeat center center;
+    span{
+      display: block;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      margin-left: -12px;
+      margin-top: -12px;
+      transition: 1s;
+      background:  url('../img/cd-icon-add.svg') no-repeat center;
     }
   }
 

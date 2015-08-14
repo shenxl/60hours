@@ -12,36 +12,29 @@ Primary style
 
 -------------------------------- */
 
-html * {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-  	font-size: 62.5%;
+*, *::after, *::before {
+  @include box-sizing(border-box);
 }
 
-*, *:after, *:before {
-	@include box-sizing(border-box);
+html {
+  font-size: 62.5%;
 }
 
 body {
-	font: {
-	  	size: 1.6rem;
-		family: $primary-font; // variables inside partials > _variables.scss
-	}
-	color: $main-text;
-  	background-color: $body-bg;
+  font: {
+	size: 1.6rem;
+	family: $primary-font; // variables inside partials > _variables.scss
+  }
+  color: $color-nav1;
+  background-color: darken($color-3, 5%);
 }
 
 a {
-	color: $link;
-	text-decoration: none;
-	font-family: $secondary-font;
+  color: $color-nav2;
+  text-decoration: none;
 }
 
 
-h1, h2 {
-	font-family: $secondary-font;
-	font-weight: bold;
-}
 
 
 /* --------------------------------
@@ -50,334 +43,450 @@ Main Components
 
 -------------------------------- */
 
-.cd-header {
-  height: 80px;
-  width: 90%;
-  margin: 0 auto;
-  @include transition(transform $animation-duration);
-  @include clearfix;
-  @include rounded-corners;
-  /* Force Hardware Acceleration in WebKit */
-  @include transform(translateZ(0));
-  @include backface-visibility(hidden);
-  background: $header-bg;
-  &.nav-is-visible {
-	@include transform(translateY($nav-height-S));
-  }
 
-  @include MQ(M) {
-
-	&.nav-is-visible {
-	  @include transform(translateY($nav-height-M));
-	}
-  }
-}
-
-.cd-logo {
-  float: left;
-  margin-top: 28px;
-}
-
-.cd-3d-nav-info{
-  float: left;
-  height: 45px;
-  margin-top: 28px;
-	span{
-	  margin-left: 80px;
-	  width: 45px;
-	  font-size: x-large;
-	  color: beige;
-	}
-}
-
-.cd-3d-nav-trigger {
-  position: relative;
-  float: right;
-  height: 45px;
-  width: 45px;
-  margin-top: 18px;
-
-  /* replace text with background image */
-  overflow: hidden;
-  text-indent: 100%;
-  white-space: nowrap;
-  color: transparent;
-
-  span,
-  span::before,
-  span::after {
-	/* hamburger icon in CSS */
-	position: absolute;
-	width: 28px;
-	height: 3px;
-	background-color: #FFF;
-	@include backface-visibility(hidden);
-  }
-
-  span {
-	/* this is the central line */
-	top: 21px;
-	left: 8px;
-	@include transition(background 0.2s $animation-duration);
-
-	&::before,
-	&:after {
-	  /* these are the upper and lower lines */
-	  content: '';
-	  left: 0;
-	  @include transition(transform 0.2s $animation-duration);
-	}
-
-	&::before {
-	  bottom: 8px;
-	}
-
-	&::after {
-	  top: 8px;
-	}
-  }
-
-  .nav-is-visible & {
-
-	span {
-	  /* hide line in the center */
-	  background-color: rgba(#FFF, 0);
-
-	  &::before,
-	  &::after {
-		/* keep visible other 2 lines */
-		background-color: rgba(#FFF, 1);
-	  }
-
-	  &::before {
-		@include transform(translateY(8px) rotate(-45deg));
-	  }
-
-	  &::after {
-		@include transform(translateY(-8px) rotate(45deg));
-	  }
-	}
-  }
-}
-
-.cd-3d-nav-container {
-  /* this is the 3D navigation container */
+header {
   position: fixed;
+  z-index: 3;
+  height: 50px;
+  width: 100%;
   top: 0;
   left: 0;
-  height: $nav-height-S;
-  width: 100%;
-  background-color: $nav-container-bg;
-  visibility: hidden;
-  /* enable a 3D-space for children elements */
-  @include perspective(1000px);
-
-  @include transform(translateY(-100%));
-
-  -webkit-transition: -webkit-transform $animation-duration 0s, visibility 0s $animation-duration;
-  -moz-transition: -moz-transform $animation-duration 0s, visibility 0s $animation-duration;
-  transition: transform $animation-duration 0s, visibility 0s $animation-duration;
-
-  &.nav-is-visible {
-	visibility: visible;
-	@include transform(translateY(0));
-
-	-webkit-transition: -webkit-transform $animation-duration 0s, visibility $animation-duration 0s;
-	-moz-transition: -moz-transform $animation-duration 0s, visibility $animation-duration 0s;
-	transition: transform $animation-duration 0s, visibility $animation-duration 0s;
-  }
-
-  @include MQ(M) {
-	height: $nav-height-M;
-  }
-}
-
-.cd-3d-nav {
-  /* this is the 3D rotating navigation */
-  position: relative;
-  height: 100%;
-  background-color: $nav-bg;
+  background-color: $color-nav1;
+  @include font-smoothing;
 
   /* Force Hardware Acceleration */
   @include transform(translateZ(0));
   @include backface-visibility(hidden);
 
-  @include transform-origin(center bottom);
-  @include transform(rotateX(90deg));
-  @include transition(transform $animation-duration);
+  @include transition(transform .3s);
 
-  &::after {
-	/* menu dark cover layer - to enhance perspective effect */
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	//height: 100%;
-	width: 100%;
-	background-color: $nav-container-bg;
-	opacity: 1;
-	visibility: visible;
-	@include transition(opacity $animation-duration 0s, visibility $animation-duration 0s);
+  &.nav-is-visible {
+	@include transform(translateX(-260px));
   }
-
-  li {
-	height: 100%;
-	@include column(1/$nav-items); // see partials > _layout.scss
-
-  }
-
-  a {
-	position: relative;
-	display: block;
-	height: 100%;
-	color: transparent;
-	@include transition(background-color 0.2s);
-
-	&::before {
-	  /* navigation icons */
-	  content: '';
-	  height: 32px;
-	  width: 32px;
-	  position: absolute;
-	  @include center;
-	  background-size: 32px 64px;
-	  background-repeat: no-repeat;
-	  background-position: 0 0;
-	}
-
-	.no-touch &:hover {
-	  background-color: darken($body-bg, 15%);
-	}
-  }
-
-  .cd-selected a {
-	background-color: darken($body-bg, 20%);
-
-	.no-touch &:hover {
-	  background-color: darken($body-bg, 20%);
-	}
-
-	&::before {
-	  background-position: 0 -32px;
-	}
-  }
-
-  .nav-is-visible & {
-	@include transform(translateZ(0));
-
-	&::after {
-	  /* menu cover layer - hide it when navigation is visible */
-	  opacity: 0;
-	  visibility: hidden;
-	  @include transition(opacity $animation-duration 0s, visibility 0s $animation-duration);
-	}
-  }
-
-  @include MQ(M) {
-
-	a {
-	  padding: 5.6em 1em 0;
-	  color: $text-color;
-	  font: {
-		size: 1.3rem;
-		weight: 600;
-	  }
-	  text-align: center;
-	  @include font-smoothing;
-
-	  /* truncate text with ellipsis if too long */
-	  white-space: nowrap;
-	  overflow: hidden;
-	  text-overflow: ellipsis;
-
-	  &::before {
-		top: 4.4em;
-		@include center(x);
-	  }
-	}
-  }
-}
-
-.cd-marker {
-  /* line at the bottom of nav selected item */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  width: 100%/$nav-items;
-  background-color: currentColor;
-  @include transform-origin(center bottom);
-  @include transform(translateZ(0) rotateX(90deg));
-
-  -webkit-transition: -webkit-transform $animation-duration, left 0.5s, color 0.5s, background-color 0.5s;
-  -moz-transition: -moz-transform $animation-duration, left 0.5s, color 0.5s, background-color 0.5s;
-  transition: transform $animation-duration, left 0.5s, color 0.5s, background-color 0.5s;
 
   &::before {
-	/* triangle at the bottom of nav selected item */
-	content: '';
-	position: absolute;
-	bottom: 3px;
-	@include center(x);
-	height: 0;
-	width: 0;
-	border: 10px solid transparent;
-	border-bottom-color: inherit;
+	/* never visible - this is used in jQuery to check the current MQ */
+	display: none;
+	content: 'mobile';
   }
 
-  .nav-is-visible & {
-	@include transform(translateZ(0));
+  @include MQ(L) {
+	height: 80px;
+
+	&.nav-is-visible {
+	  @include transform(translateX(0));
+	}
+
+	&::before {
+	  content: 'desktop';
+	}
   }
 }
 
-/* these are the colors of the markers - line + arrow */
+.cd-logo {
+  display: inline-block;
+  height: 100%;
+  margin-left: 15px;
 
-.color-1 {
-  color: $color-1;
-}
-.color-2 {
-  color: $color-2;
-}
-.color-3 {
-  color: $color-3;
-}
-.color-4 {
-  color: $color-4;
-}
-.color-5 {
-  color: $color-5;
-}
-
-main {
-  @include transition(transform $animation-duration);
-  /* Force Hardware Acceleration in WebKit */
+  /* remove jump on iOS devices - when we fire the navigation */
   @include transform(translateZ(0));
   @include backface-visibility(hidden);
 
-  h1 {
-	text-align: center;
-	font: {
-	  size: 2.4rem;
-	  weight: 300;
-	}
-	color: $text-color;
-	margin: 2em auto;
-	@include font-smoothing;
+  img {
+	display: block;
+	max-width: 100%;
+	margin-top: 14px;
   }
 
-  &.nav-is-visible {
-	@include transform(translateY($nav-height-S));
-  }
+  @include MQ(L) {
+	position: absolute;
+	z-index: 2;
+	margin-left: 5%;
 
-  @include MQ(M) {
-	&.nav-is-visible {
-	  @include transform(translateY($nav-height-M));
-	}
-
-	h1 {
-	  font-size: 3.6rem;
-	  margin: 4em auto;
+	img {
+	  margin-top: 29px;
 	}
   }
 }
 
+.cd-nav-trigger {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50px;
+
+  /* hide text */
+  overflow: hidden;
+  white-space: nowrap;
+  color: transparent;
+
+  span {
+	/* hamburger icon created in CSS */
+	position: absolute;
+	height: 2px;
+	width: 20px;
+	top: 50%;
+	margin-top: -1px;
+	left: 50%;
+	margin-left: -10px;
+	@include transition(background-color .3s .3s);
+	background-color: $color-nav3;
+
+	&::before, &::after {
+	  /* upper and lower lines of the menu icon */
+	  content: '';
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  background-color: $color-nav3;
+
+	  /* Force Hardware Acceleration */
+	  @include transform(translateZ(0));
+	  @include backface-visibility(hidden);
+
+	  @include transition(transform .3s .3s);
+	}
+
+	&::before {
+	  @include transform(translateY(-6px));
+	}
+
+	&::after {
+	  @include transform(translateY(6px));
+	}
+  }
+
+  .nav-is-visible & span {
+	background-color: rgba($color-nav3, 0);
+
+	&::before {
+	  @include transform(translateY(0) rotate(-45deg));
+	}
+
+	&::after {
+	  @include transform(translateY(0) rotate(45deg));
+	}
+  }
+
+  @include MQ(L) {
+	display: none;
+  }
+}
+
+.cd-main-nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 100vh;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  visibility: hidden;
+  background: darken($color-nav1, 10%);
+
+  @include transition(visibility 0s .3s);
+
+  a {
+	display: block;
+	font-size: 1.8rem;
+	padding: .9em 2em .9em 1em;
+	border-bottom: 1px solid $color-nav1;
+	color: $color-nav3;
+	@include transition(transform .3s, opacity .3s);
+  }
+
+  li ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	@include transition(transform .3s);
+	@include transform(translateX(260px));
+  }
+
+  &.nav-is-visible {
+	visibility: visible;
+	@include transition(visibility 0s 0s);
+  }
+
+  &.moves-out > li > a {
+	/* push the navigation items to the left - and lower down opacity - when secondary nav slides in */
+	@include transform(translateX(-100%));
+	opacity: 0;
+  }
+
+  &.moves-out > li > ul {
+	@include transform(translateX(0));
+  }
+
+  .cd-subnav-trigger, .go-back a {
+	position: relative;
+
+	&::before, &::after {
+	  /* arrow icon in CSS */
+	  content: '';
+	  position: absolute;
+	  top: 50%;
+	  margin-top: -1px;
+	  display: inline-block;
+	  height: 2px;
+	  width: 10px;
+	  background: lighten($color-nav1, 10%);
+	  @include backface-visibility(hidden);
+	}
+
+	&::before {
+	  @include transform(rotate(45deg));
+	}
+
+	&::after {
+	  @include transform(rotate(-45deg));
+	}
+  }
+
+  .cd-subnav-trigger::before, .cd-subnav-trigger::after {
+	/* arrow goes on the right side - children navigation */
+	right: 20px;
+	@include transform-origin(9px 50%);
+  }
+
+  .go-back a {
+	padding-left: 2em;
+
+	&::before, &::after {
+	  /* arrow goes on the left side - go back button */
+	  left: 20px;
+	  @include transform-origin(1px 50%);
+	}
+  }
+
+  .placeholder {
+	/* never visible or clickable- it is used to take up the same space as the .cd-subnav-trigger */
+	display: none;
+  }
+
+  @include MQ(L) {
+	position: static;
+	visibility: visible;
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	/* padding left = logo size + logo left position*/
+	padding: 0 5% 0 calc(5% + 124px);
+	background: transparent;
+	text-align: right;
+
+	li {
+	  display: inline-block;
+	  height: 100%;
+	  padding: 0 .4em;
+	}
+
+	li a {
+	  display: inline-block;
+	  padding: .8em;
+	  line-height: 1;
+	  font-size: 1.6rem;
+	  border-bottom: none;
+
+	  /* Prevent .cd-subnav-trigger flicker is Safari */
+	  @include transform(translateZ(0));
+	  @include backface-visibility(hidden);
+
+	  @include transition(opacity .2s);
+	}
+
+	li a:not(.cd-subnav-trigger):hover {
+	  @include backface-visibility(hidden);
+	  opacity: .6;
+	}
+
+	.go-back {
+	  display: none;
+	}
+
+	.cd-subnav-trigger {
+	  z-index: 1;
+	  border: 1px solid rgba($color-nav3, .2);
+	  border-radius: 5em;
+	  @include transition(border .3s);
+
+	  &:hover {
+		border-color: rgba($color-nav3, .4);
+	  }
+
+	  &::before, &::after {
+		top: 22px;
+		right: 17px;
+		background-color: $color-nav3;
+		/* change transform-origin to rotate the arrow */
+		@include transform-origin(50% 50%);
+		@include transition(transform .3s, width .3s, right .3s);
+	  }
+
+	  &::before {
+		right: 23px;
+	  }
+	}
+
+	.cd-subnav-trigger, .placeholder {
+	  padding-right: 2.4em;
+	  padding-left: 1.1em;
+	}
+
+	li ul {
+	  height: 80px;
+	  background-color: $color-nav2;
+	  /* padding left = logo size + logo left position*/
+	  padding: 0 5% 0 calc(5% + 124px);
+
+	  @include transform(translateY(-80px));
+	  @include transition(transform .3s .2s);
+	}
+
+	li ul li {
+	  opacity: 0;
+	  @include transform(translateY(-20px));
+	  @include transition(transform .3s 0s, opacity .3s 0s);
+	}
+
+	.placeholder {
+	  /* never visible or clickable- it is used to take up the same space as the .cd-subnav-trigger */
+	  display: block;
+	  visibility: hidden;
+	  opacity: 0;
+	  pointer-event: none;
+	}
+
+	&.moves-out > li > a {
+	  @include transform(translateX(0));
+	  opacity: 1;
+	}
+
+	&.moves-out > li > ul {
+	  @include transition(transform .3s);
+	  @include transform(translateY(0));
+	}
+
+	&.moves-out > li ul li {
+	  opacity: 1;
+	  @include transform(translateY(0));
+	  @include transition(transform .3s .2s, opacity .3s .2s);
+	}
+
+	&.moves-out .cd-subnav-trigger {
+
+	  &::before, &::after {
+		width: 14px;
+		right: 17px;
+	  }
+
+	  &::before {
+		@include transform(rotate(225deg));
+	  }
+
+	  &::after {
+		@include transform(rotate(135deg));
+	  }
+	}
+  }
+}
+
+.cd-main-content::before {
+  /* never visible - this is used in jQuery to check the current MQ */
+  display: none;
+  content: 'mobile';
+
+  @include MQ(L) {
+	content: 'desktop';
+  }
+}
+
+.cd-main-content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding-top: 50px;
+  background-color: darken($color-nav3, 5%);
+  @include transition(transform .3s);
+
+  &.nav-is-visible {
+	@include transform(translateX(-260px));
+  }
+
+  @include MQ(L) {
+	padding-top: 80px;
+
+	&.nav-is-visible {
+	  @include transform(translateX(0));
+	}
+  }
+}
+
+.no-js .cd-nav-trigger, .no-js .cd-subnav-trigger {
+  display: none;
+}
+
+.no-js header {
+  position: relative;
+  height: auto;
+}
+
+.no-js .cd-logo img {
+  margin-bottom: 14px;
+}
+
+.no-js .cd-main-nav {
+  position: static;
+  width: 100%;
+  height: auto;
+  visibility: visible;
+  overflow: visible;
+
+  li {
+	display: inline-block;
+
+	&:last-child {
+	  display: block;
+	}
+  }
+
+  .go-back {
+	display: none;
+  }
+
+  li ul {
+	position: static;
+	width: 100%;
+	@include transform(translateX(0));
+  }
+
+  @include MQ(L) {
+	height: 80px;
+
+	li ul {
+	  position: absolute;
+	  top: 80px;
+	}
+
+	li ul li {
+	  @include transform(translateY(0));
+	  opacity: 1;
+
+	  &:last-child {
+		display: none;
+	  }
+	}
+  }
+}
+
+.no-js .cd-main-content {
+  padding-top: 0;
+
+  @include MQ(L) {
+	padding-top: 80px;
+  }
+}

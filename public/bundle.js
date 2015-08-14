@@ -23548,10 +23548,10 @@
 
 	var React = __webpack_require__(1);
 	var Main = __webpack_require__(197);
-	var Home = __webpack_require__(204);
-	var Profile = __webpack_require__(223);
+	var Home = __webpack_require__(203);
+	var Profile = __webpack_require__(226);
 	var Router = __webpack_require__(157);
-	var TimelineContainer = __webpack_require__(205);
+	var TimelineContainer = __webpack_require__(204);
 
 	var DefaultRoute = Router.DefaultRoute;
 	var Route = Router.Route;
@@ -23572,11 +23572,7 @@
 
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(198);
-	var Nav = __webpack_require__(199);
 	var RouteHandler = __webpack_require__(157).RouteHandler;
-
-	// 加载Css样式
-	__webpack_require__(200);
 
 	var Main = React.createClass({
 	    displayName: 'Main',
@@ -23586,10 +23582,9 @@
 	            'div',
 	            null,
 	            React.createElement(Header, null),
-	            React.createElement(Nav, null),
 	            React.createElement(
 	                'main',
-	                null,
+	                { className: 'cd-main-content' },
 	                React.createElement(RouteHandler, null)
 	            )
 	        );
@@ -23601,41 +23596,130 @@
 /* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
-
+	// 加载Css样式
+	__webpack_require__(199);
 	var Header = React.createClass({
-		displayName: "Header",
+		displayName: 'Header',
 
 		render: function render() {
 			return React.createElement(
-				"header",
-				{ className: "cd-header" },
+				'header',
+				null,
+				React.createElement('div', { className: 'cd-logo' }),
 				React.createElement(
-					"div",
-					{ className: "cd-3d-nav-info" },
+					'nav',
+					{ className: 'cd-main-nav-wrapper' },
 					React.createElement(
-						"span",
-						null,
-						"目标："
-					),
-					React.createElement(
-						"span",
-						null,
-						"每天做的： xxx"
-					),
-					React.createElement(
-						"span",
-						null,
-						"30小时 第20天"
+						'ul',
+						{ className: 'cd-main-nav' },
+						React.createElement(
+							'li',
+							null,
+							React.createElement(
+								'a',
+								{ href: '#' },
+								'我'
+							)
+						),
+						React.createElement(
+							'li',
+							null,
+							React.createElement(
+								'a',
+								{ href: '#' },
+								'伙伴'
+							)
+						),
+						React.createElement(
+							'li',
+							null,
+							React.createElement(
+								'a',
+								{ href: '#' },
+								'登陆'
+							)
+						),
+						React.createElement(
+							'li',
+							null,
+							React.createElement(
+								'a',
+								{ href: '#', className: 'cd-subnav-trigger' },
+								React.createElement(
+									'span',
+									null,
+									'完成情况'
+								)
+							),
+							React.createElement(
+								'ul',
+								null,
+								React.createElement(
+									'li',
+									{ className: 'go-back' },
+									React.createElement(
+										'a',
+										{ href: '#' },
+										'返回'
+									)
+								),
+								React.createElement(
+									'li',
+									null,
+									React.createElement(
+										'a',
+										{ href: '#' },
+										'最终目标：完成网站开发'
+									)
+								),
+								React.createElement(
+									'li',
+									null,
+									React.createElement(
+										'a',
+										{ href: '#' },
+										'近期计划：学习Node.js架构'
+									)
+								),
+								React.createElement(
+									'li',
+									null,
+									React.createElement(
+										'a',
+										{ href: '#' },
+										'第30小时'
+									)
+								),
+								React.createElement(
+									'li',
+									null,
+									React.createElement(
+										'a',
+										{ href: '#' },
+										'第5天'
+									)
+								),
+								React.createElement(
+									'li',
+									null,
+									React.createElement(
+										'a',
+										{ href: '#', className: 'placeholder' },
+										'Placeholder'
+									)
+								)
+							)
+						)
 					)
 				),
 				React.createElement(
-					"a",
-					{ href: "#", className: "cd-3d-nav-trigger" },
-					"Menu",
-					React.createElement("span", null)
+					'a',
+					{ href: '#', className: 'cd-nav-trigger' },
+					'返回',
+					React.createElement('span', null)
 				)
 			);
 		}
@@ -23647,56 +23731,13 @@
 /* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-
-	var React = __webpack_require__(1);
-	var Nav = React.createClass({
-	    displayName: "Nav",
-
-	    render: function render() {
-	        return React.createElement(
-	            "nav",
-	            { className: "cd-3d-nav-container" },
-	            React.createElement(
-	                "ul",
-	                { className: "cd-3d-nav" },
-	                React.createElement(
-	                    "li",
-	                    { className: "cd-selected" },
-	                    React.createElement(
-	                        "a",
-	                        { href: "#" },
-	                        "我的里程"
-	                    )
-	                ),
-	                React.createElement(
-	                    "li",
-	                    null,
-	                    React.createElement(
-	                        "a",
-	                        { href: "#" },
-	                        "同伴里程"
-	                    )
-	                )
-	            ),
-	            React.createElement("span", { className: "cd-marker color-1" })
-	        );
-	    }
-
-	});
-	module.exports = Nav;
-
-/***/ },
-/* 200 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(201);
+	var content = __webpack_require__(200);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(203)(content, {});
+	var update = __webpack_require__(202)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -23713,21 +23754,21 @@
 	}
 
 /***/ },
-/* 201 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(202)();
+	exports = module.exports = __webpack_require__(201)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/* -------------------------------- \r\n\r\nPrimary style\r\n\r\n-------------------------------- */\nhtml * {\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 62.5%; }\n\n*, *:after, *:before {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\nbody {\n  font-size: 1.6rem;\n  font-family: \"Droid Serif\", serif;\n  color: #7f8c97;\n  background-color: #485274; }\n\na {\n  color: #acb7c0;\n  text-decoration: none;\n  font-family: \"Open Sans\", sans-serif; }\n\nh1, h2 {\n  font-family: \"Open Sans\", sans-serif;\n  font-weight: bold; }\n\n/* --------------------------------\r\n\r\nMain Components\r\n\r\n-------------------------------- */\n.cd-header {\n  height: 80px;\n  width: 90%;\n  margin: 0 auto;\n  -webkit-transition: -webkit-transform 0.5s;\n  -moz-transition: -moz-transform 0.5s;\n  transition: transform 0.5s;\n  -moz-border-radius: 5px;\n  -webkit-border-radius: 5px;\n  border-radius: 5px;\n  /* Force Hardware Acceleration in WebKit */\n  -webkit-transform: translateZ(0);\n  -moz-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  -o-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  background: yellowgreen; }\n  .cd-header::after {\n    clear: both;\n    content: \"\";\n    display: table; }\n  .cd-header.nav-is-visible {\n    -webkit-transform: translateY(80px);\n    -moz-transform: translateY(80px);\n    -ms-transform: translateY(80px);\n    -o-transform: translateY(80px);\n    transform: translateY(80px); }\n  @media only screen and (min-width: 768px) {\n    .cd-header.nav-is-visible {\n      -webkit-transform: translateY(170px);\n      -moz-transform: translateY(170px);\n      -ms-transform: translateY(170px);\n      -o-transform: translateY(170px);\n      transform: translateY(170px); } }\n\n.cd-logo {\n  float: left;\n  margin-top: 28px; }\n\n.cd-3d-nav-info {\n  float: left;\n  height: 45px;\n  margin-top: 28px; }\n  .cd-3d-nav-info span {\n    margin-left: 80px;\n    width: 45px;\n    font-size: x-large;\n    color: beige; }\n\n.cd-3d-nav-trigger {\n  position: relative;\n  float: right;\n  height: 45px;\n  width: 45px;\n  margin-top: 18px;\n  /* replace text with background image */\n  overflow: hidden;\n  text-indent: 100%;\n  white-space: nowrap;\n  color: transparent; }\n  .cd-3d-nav-trigger span,\n  .cd-3d-nav-trigger span::before,\n  .cd-3d-nav-trigger span::after {\n    /* hamburger icon in CSS */\n    position: absolute;\n    width: 28px;\n    height: 3px;\n    background-color: #FFF;\n    -webkit-backface-visibility: hidden;\n    backface-visibility: hidden; }\n  .cd-3d-nav-trigger span {\n    /* this is the central line */\n    top: 21px;\n    left: 8px;\n    -webkit-transition: background 0.2s 0.5s;\n    -moz-transition: background 0.2s 0.5s;\n    transition: background 0.2s 0.5s; }\n    .cd-3d-nav-trigger span::before,\n    .cd-3d-nav-trigger span:after {\n      /* these are the upper and lower lines */\n      content: '';\n      left: 0;\n      -webkit-transition: -webkit-transform 0.2s 0.5s;\n      -moz-transition: -moz-transform 0.2s 0.5s;\n      transition: transform 0.2s 0.5s; }\n    .cd-3d-nav-trigger span::before {\n      bottom: 8px; }\n    .cd-3d-nav-trigger span::after {\n      top: 8px; }\n  .nav-is-visible .cd-3d-nav-trigger span {\n    /* hide line in the center */\n    background-color: rgba(255, 255, 255, 0); }\n    .nav-is-visible .cd-3d-nav-trigger span::before,\n    .nav-is-visible .cd-3d-nav-trigger span::after {\n      /* keep visible other 2 lines */\n      background-color: white; }\n    .nav-is-visible .cd-3d-nav-trigger span::before {\n      -webkit-transform: translateY(8px) rotate(-45deg);\n      -moz-transform: translateY(8px) rotate(-45deg);\n      -ms-transform: translateY(8px) rotate(-45deg);\n      -o-transform: translateY(8px) rotate(-45deg);\n      transform: translateY(8px) rotate(-45deg); }\n    .nav-is-visible .cd-3d-nav-trigger span::after {\n      -webkit-transform: translateY(-8px) rotate(45deg);\n      -moz-transform: translateY(-8px) rotate(45deg);\n      -ms-transform: translateY(-8px) rotate(45deg);\n      -o-transform: translateY(-8px) rotate(45deg);\n      transform: translateY(-8px) rotate(45deg); }\n\n.cd-3d-nav-container {\n  /* this is the 3D navigation container */\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 80px;\n  width: 100%;\n  background-color: #000000;\n  visibility: hidden;\n  /* enable a 3D-space for children elements */\n  -webkit-perspective: 1000px;\n  -moz-perspective: 1000px;\n  perspective: 1000px;\n  -webkit-transform: translateY(-100%);\n  -moz-transform: translateY(-100%);\n  -ms-transform: translateY(-100%);\n  -o-transform: translateY(-100%);\n  transform: translateY(-100%);\n  -webkit-transition: -webkit-transform 0.5s 0s, visibility 0s 0.5s;\n  -moz-transition: -moz-transform 0.5s 0s, visibility 0s 0.5s;\n  transition: transform 0.5s 0s, visibility 0s 0.5s; }\n  .cd-3d-nav-container.nav-is-visible {\n    visibility: visible;\n    -webkit-transform: translateY(0);\n    -moz-transform: translateY(0);\n    -ms-transform: translateY(0);\n    -o-transform: translateY(0);\n    transform: translateY(0);\n    -webkit-transition: -webkit-transform 0.5s 0s, visibility 0.5s 0s;\n    -moz-transition: -moz-transform 0.5s 0s, visibility 0.5s 0s;\n    transition: transform 0.5s 0s, visibility 0.5s 0s; }\n  @media only screen and (min-width: 768px) {\n    .cd-3d-nav-container {\n      height: 170px; } }\n\n.cd-3d-nav {\n  /* this is the 3D rotating navigation */\n  position: relative;\n  height: 100%;\n  background-color: #343c55;\n  /* Force Hardware Acceleration */\n  -webkit-transform: translateZ(0);\n  -moz-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  -o-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  -webkit-transform-origin: center bottom;\n  -moz-transform-origin: center bottom;\n  -ms-transform-origin: center bottom;\n  -o-transform-origin: center bottom;\n  transform-origin: center bottom;\n  -webkit-transform: rotateX(90deg);\n  -moz-transform: rotateX(90deg);\n  -ms-transform: rotateX(90deg);\n  -o-transform: rotateX(90deg);\n  transform: rotateX(90deg);\n  -webkit-transition: -webkit-transform 0.5s;\n  -moz-transition: -moz-transform 0.5s;\n  transition: transform 0.5s; }\n  .cd-3d-nav::after {\n    /* menu dark cover layer - to enhance perspective effect */\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    background-color: #000000;\n    opacity: 1;\n    visibility: visible;\n    -webkit-transition: opacity 0.5s 0s, visibility 0.5s 0s;\n    -moz-transition: opacity 0.5s 0s, visibility 0.5s 0s;\n    transition: opacity 0.5s 0s, visibility 0.5s 0s; }\n  .cd-3d-nav li {\n    height: 100%;\n    width: 33.33333%;\n    float: left; }\n  .cd-3d-nav a {\n    position: relative;\n    display: block;\n    height: 100%;\n    color: transparent;\n    -webkit-transition: background-color 0.2s;\n    -moz-transition: background-color 0.2s;\n    transition: background-color 0.2s; }\n    .cd-3d-nav a::before {\n      /* navigation icons */\n      content: '';\n      height: 32px;\n      width: 32px;\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      bottom: auto;\n      right: auto;\n      -webkit-transform: translateX(-50%) translateY(-50%);\n      -moz-transform: translateX(-50%) translateY(-50%);\n      -ms-transform: translateX(-50%) translateY(-50%);\n      -o-transform: translateX(-50%) translateY(-50%);\n      transform: translateX(-50%) translateY(-50%);\n      background-size: 32px 64px;\n      background-repeat: no-repeat;\n      background-position: 0 0; }\n    .no-touch .cd-3d-nav a:hover {\n      background-color: #2b3145; }\n  .cd-3d-nav .cd-selected a {\n    background-color: #212635; }\n    .no-touch .cd-3d-nav .cd-selected a:hover {\n      background-color: #212635; }\n    .cd-3d-nav .cd-selected a::before {\n      background-position: 0 -32px; }\n  .nav-is-visible .cd-3d-nav {\n    -webkit-transform: translateZ(0);\n    -moz-transform: translateZ(0);\n    -ms-transform: translateZ(0);\n    -o-transform: translateZ(0);\n    transform: translateZ(0); }\n    .nav-is-visible .cd-3d-nav::after {\n      /* menu cover layer - hide it when navigation is visible */\n      opacity: 0;\n      visibility: hidden;\n      -webkit-transition: opacity 0.5s 0s, visibility 0s 0.5s;\n      -moz-transition: opacity 0.5s 0s, visibility 0s 0.5s;\n      transition: opacity 0.5s 0s, visibility 0s 0.5s; }\n  @media only screen and (min-width: 768px) {\n    .cd-3d-nav a {\n      padding: 5.6em 1em 0;\n      color: #ffffff;\n      font-size: 1.3rem;\n      font-weight: 600;\n      text-align: center;\n      -webkit-font-smoothing: antialiased;\n      -moz-osx-font-smoothing: grayscale;\n      /* truncate text with ellipsis if too long */\n      white-space: nowrap;\n      overflow: hidden;\n      text-overflow: ellipsis; }\n      .cd-3d-nav a::before {\n        top: 4.4em;\n        left: 50%;\n        right: auto;\n        -webkit-transform: translateX(-50%);\n        -moz-transform: translateX(-50%);\n        -ms-transform: translateX(-50%);\n        -o-transform: translateX(-50%);\n        transform: translateX(-50%); } }\n\n.cd-marker {\n  /* line at the bottom of nav selected item */\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  height: 3px;\n  width: 33.33333%;\n  background-color: currentColor;\n  -webkit-transform-origin: center bottom;\n  -moz-transform-origin: center bottom;\n  -ms-transform-origin: center bottom;\n  -o-transform-origin: center bottom;\n  transform-origin: center bottom;\n  -webkit-transform: translateZ(0) rotateX(90deg);\n  -moz-transform: translateZ(0) rotateX(90deg);\n  -ms-transform: translateZ(0) rotateX(90deg);\n  -o-transform: translateZ(0) rotateX(90deg);\n  transform: translateZ(0) rotateX(90deg);\n  -webkit-transition: -webkit-transform 0.5s, left 0.5s, color 0.5s, background-color 0.5s;\n  -moz-transition: -moz-transform 0.5s, left 0.5s, color 0.5s, background-color 0.5s;\n  transition: transform 0.5s, left 0.5s, color 0.5s, background-color 0.5s; }\n  .cd-marker::before {\n    /* triangle at the bottom of nav selected item */\n    content: '';\n    position: absolute;\n    bottom: 3px;\n    left: 50%;\n    right: auto;\n    -webkit-transform: translateX(-50%);\n    -moz-transform: translateX(-50%);\n    -ms-transform: translateX(-50%);\n    -o-transform: translateX(-50%);\n    transform: translateX(-50%);\n    height: 0;\n    width: 0;\n    border: 10px solid transparent;\n    border-bottom-color: inherit; }\n  .nav-is-visible .cd-marker {\n    -webkit-transform: translateZ(0);\n    -moz-transform: translateZ(0);\n    -ms-transform: translateZ(0);\n    -o-transform: translateZ(0);\n    transform: translateZ(0); }\n\n/* these are the colors of the markers - line + arrow */\n.color-1 {\n  color: #303e49; }\n\n.color-2 {\n  color: #c03b44; }\n\n.color-3 {\n  color: #ffffff; }\n\n.color-4 {\n  color: #75ce66; }\n\n.color-5 {\n  color: #f0ca45; }\n\nmain {\n  -webkit-transition: -webkit-transform 0.5s;\n  -moz-transition: -moz-transform 0.5s;\n  transition: transform 0.5s;\n  /* Force Hardware Acceleration in WebKit */\n  -webkit-transform: translateZ(0);\n  -moz-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  -o-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden; }\n  main h1 {\n    text-align: center;\n    font-size: 2.4rem;\n    font-weight: 300;\n    color: #ffffff;\n    margin: 2em auto;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale; }\n  main.nav-is-visible {\n    -webkit-transform: translateY(80px);\n    -moz-transform: translateY(80px);\n    -ms-transform: translateY(80px);\n    -o-transform: translateY(80px);\n    transform: translateY(80px); }\n  @media only screen and (min-width: 768px) {\n    main.nav-is-visible {\n      -webkit-transform: translateY(170px);\n      -moz-transform: translateY(170px);\n      -ms-transform: translateY(170px);\n      -o-transform: translateY(170px);\n      transform: translateY(170px); }\n    main h1 {\n      font-size: 3.6rem;\n      margin: 4em auto; } }\n", ""]);
+	exports.push([module.id, "/* -------------------------------- \r\n\r\nPrimary style\r\n\r\n-------------------------------- */\n*, *::after, *::before {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\nhtml {\n  font-size: 62.5%; }\n\nbody {\n  font-size: 1.6rem;\n  font-family: \"PT Sans\", sans-serif;\n  color: #33414a;\n  background-color: #f2f2f2; }\n\na {\n  color: #7e4d7e;\n  text-decoration: none; }\n\n/* --------------------------------\r\n\r\nMain Components\r\n\r\n-------------------------------- */\nheader {\n  position: fixed;\n  z-index: 3;\n  height: 50px;\n  width: 100%;\n  top: 0;\n  left: 0;\n  background-color: #33414a;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  /* Force Hardware Acceleration */\n  -webkit-transform: translateZ(0);\n  -moz-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  -o-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  -webkit-transition: -webkit-transform 0.3s;\n  -moz-transition: -moz-transform 0.3s;\n  transition: transform 0.3s; }\n  header.nav-is-visible {\n    -webkit-transform: translateX(-260px);\n    -moz-transform: translateX(-260px);\n    -ms-transform: translateX(-260px);\n    -o-transform: translateX(-260px);\n    transform: translateX(-260px); }\n  header::before {\n    /* never visible - this is used in jQuery to check the current MQ */\n    display: none;\n    content: 'mobile'; }\n  @media only screen and (min-width: 1170px) {\n    header {\n      height: 80px; }\n      header.nav-is-visible {\n        -webkit-transform: translateX(0);\n        -moz-transform: translateX(0);\n        -ms-transform: translateX(0);\n        -o-transform: translateX(0);\n        transform: translateX(0); }\n      header::before {\n        content: 'desktop'; } }\n\n.cd-logo {\n  display: inline-block;\n  height: 100%;\n  margin-left: 15px;\n  /* remove jump on iOS devices - when we fire the navigation */\n  -webkit-transform: translateZ(0);\n  -moz-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  -o-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden; }\n  .cd-logo img {\n    display: block;\n    max-width: 100%;\n    margin-top: 14px; }\n  @media only screen and (min-width: 1170px) {\n    .cd-logo {\n      position: absolute;\n      z-index: 2;\n      margin-left: 5%; }\n      .cd-logo img {\n        margin-top: 29px; } }\n\n.cd-nav-trigger {\n  display: block;\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 100%;\n  width: 50px;\n  /* hide text */\n  overflow: hidden;\n  white-space: nowrap;\n  color: transparent; }\n  .cd-nav-trigger span {\n    /* hamburger icon created in CSS */\n    position: absolute;\n    height: 2px;\n    width: 20px;\n    top: 50%;\n    margin-top: -1px;\n    left: 50%;\n    margin-left: -10px;\n    -webkit-transition: background-color 0.3s 0.3s;\n    -moz-transition: background-color 0.3s 0.3s;\n    transition: background-color 0.3s 0.3s;\n    background-color: #ffffff; }\n    .cd-nav-trigger span::before, .cd-nav-trigger span::after {\n      /* upper and lower lines of the menu icon */\n      content: '';\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      background-color: #ffffff;\n      /* Force Hardware Acceleration */\n      -webkit-transform: translateZ(0);\n      -moz-transform: translateZ(0);\n      -ms-transform: translateZ(0);\n      -o-transform: translateZ(0);\n      transform: translateZ(0);\n      -webkit-backface-visibility: hidden;\n      backface-visibility: hidden;\n      -webkit-transition: -webkit-transform 0.3s 0.3s;\n      -moz-transition: -moz-transform 0.3s 0.3s;\n      transition: transform 0.3s 0.3s; }\n    .cd-nav-trigger span::before {\n      -webkit-transform: translateY(-6px);\n      -moz-transform: translateY(-6px);\n      -ms-transform: translateY(-6px);\n      -o-transform: translateY(-6px);\n      transform: translateY(-6px); }\n    .cd-nav-trigger span::after {\n      -webkit-transform: translateY(6px);\n      -moz-transform: translateY(6px);\n      -ms-transform: translateY(6px);\n      -o-transform: translateY(6px);\n      transform: translateY(6px); }\n  .nav-is-visible .cd-nav-trigger span {\n    background-color: rgba(255, 255, 255, 0); }\n    .nav-is-visible .cd-nav-trigger span::before {\n      -webkit-transform: translateY(0) rotate(-45deg);\n      -moz-transform: translateY(0) rotate(-45deg);\n      -ms-transform: translateY(0) rotate(-45deg);\n      -o-transform: translateY(0) rotate(-45deg);\n      transform: translateY(0) rotate(-45deg); }\n    .nav-is-visible .cd-nav-trigger span::after {\n      -webkit-transform: translateY(0) rotate(45deg);\n      -moz-transform: translateY(0) rotate(45deg);\n      -ms-transform: translateY(0) rotate(45deg);\n      -o-transform: translateY(0) rotate(45deg);\n      transform: translateY(0) rotate(45deg); }\n  @media only screen and (min-width: 1170px) {\n    .cd-nav-trigger {\n      display: none; } }\n\n.cd-main-nav {\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  right: 0;\n  width: 260px;\n  height: 100vh;\n  overflow: auto;\n  -webkit-overflow-scrolling: touch;\n  visibility: hidden;\n  background: #1e262c;\n  -webkit-transition: visibility 0s 0.3s;\n  -moz-transition: visibility 0s 0.3s;\n  transition: visibility 0s 0.3s; }\n  .cd-main-nav a {\n    display: block;\n    font-size: 1.8rem;\n    padding: 0.9em 2em 0.9em 1em;\n    border-bottom: 1px solid #33414a;\n    color: #ffffff;\n    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;\n    -moz-transition: -moz-transform 0.3s, opacity 0.3s;\n    transition: transform 0.3s, opacity 0.3s; }\n  .cd-main-nav li ul {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    -webkit-transition: -webkit-transform 0.3s;\n    -moz-transition: -moz-transform 0.3s;\n    transition: transform 0.3s;\n    -webkit-transform: translateX(260px);\n    -moz-transform: translateX(260px);\n    -ms-transform: translateX(260px);\n    -o-transform: translateX(260px);\n    transform: translateX(260px); }\n  .cd-main-nav.nav-is-visible {\n    visibility: visible;\n    -webkit-transition: visibility 0s 0s;\n    -moz-transition: visibility 0s 0s;\n    transition: visibility 0s 0s; }\n  .cd-main-nav.moves-out > li > a {\n    /* push the navigation items to the left - and lower down opacity - when secondary nav slides in */\n    -webkit-transform: translateX(-100%);\n    -moz-transform: translateX(-100%);\n    -ms-transform: translateX(-100%);\n    -o-transform: translateX(-100%);\n    transform: translateX(-100%);\n    opacity: 0; }\n  .cd-main-nav.moves-out > li > ul {\n    -webkit-transform: translateX(0);\n    -moz-transform: translateX(0);\n    -ms-transform: translateX(0);\n    -o-transform: translateX(0);\n    transform: translateX(0); }\n  .cd-main-nav .cd-subnav-trigger, .cd-main-nav .go-back a {\n    position: relative; }\n    .cd-main-nav .cd-subnav-trigger::before, .cd-main-nav .cd-subnav-trigger::after, .cd-main-nav .go-back a::before, .cd-main-nav .go-back a::after {\n      /* arrow icon in CSS */\n      content: '';\n      position: absolute;\n      top: 50%;\n      margin-top: -1px;\n      display: inline-block;\n      height: 2px;\n      width: 10px;\n      background: #485c68;\n      -webkit-backface-visibility: hidden;\n      backface-visibility: hidden; }\n    .cd-main-nav .cd-subnav-trigger::before, .cd-main-nav .go-back a::before {\n      -webkit-transform: rotate(45deg);\n      -moz-transform: rotate(45deg);\n      -ms-transform: rotate(45deg);\n      -o-transform: rotate(45deg);\n      transform: rotate(45deg); }\n    .cd-main-nav .cd-subnav-trigger::after, .cd-main-nav .go-back a::after {\n      -webkit-transform: rotate(-45deg);\n      -moz-transform: rotate(-45deg);\n      -ms-transform: rotate(-45deg);\n      -o-transform: rotate(-45deg);\n      transform: rotate(-45deg); }\n  .cd-main-nav .cd-subnav-trigger::before, .cd-main-nav .cd-subnav-trigger::after {\n    /* arrow goes on the right side - children navigation */\n    right: 20px;\n    -webkit-transform-origin: 9px 50%;\n    -moz-transform-origin: 9px 50%;\n    -ms-transform-origin: 9px 50%;\n    -o-transform-origin: 9px 50%;\n    transform-origin: 9px 50%; }\n  .cd-main-nav .go-back a {\n    padding-left: 2em; }\n    .cd-main-nav .go-back a::before, .cd-main-nav .go-back a::after {\n      /* arrow goes on the left side - go back button */\n      left: 20px;\n      -webkit-transform-origin: 1px 50%;\n      -moz-transform-origin: 1px 50%;\n      -ms-transform-origin: 1px 50%;\n      -o-transform-origin: 1px 50%;\n      transform-origin: 1px 50%; }\n  .cd-main-nav .placeholder {\n    /* never visible or clickable- it is used to take up the same space as the .cd-subnav-trigger */\n    display: none; }\n  @media only screen and (min-width: 1170px) {\n    .cd-main-nav {\n      position: static;\n      visibility: visible;\n      width: 100%;\n      height: 80px;\n      line-height: 80px;\n      /* padding left = logo size + logo left position*/\n      padding: 0 5% 0 calc(5% + 124px);\n      background: transparent;\n      text-align: right; }\n      .cd-main-nav li {\n        display: inline-block;\n        height: 100%;\n        padding: 0 0.4em; }\n      .cd-main-nav li a {\n        display: inline-block;\n        padding: .8em;\n        line-height: 1;\n        font-size: 1.6rem;\n        border-bottom: none;\n        /* Prevent .cd-subnav-trigger flicker is Safari */\n        -webkit-transform: translateZ(0);\n        -moz-transform: translateZ(0);\n        -ms-transform: translateZ(0);\n        -o-transform: translateZ(0);\n        transform: translateZ(0);\n        -webkit-backface-visibility: hidden;\n        backface-visibility: hidden;\n        -webkit-transition: opacity 0.2s;\n        -moz-transition: opacity 0.2s;\n        transition: opacity 0.2s; }\n      .cd-main-nav li a:not(.cd-subnav-trigger):hover {\n        -webkit-backface-visibility: hidden;\n        backface-visibility: hidden;\n        opacity: .6; }\n      .cd-main-nav .go-back {\n        display: none; }\n      .cd-main-nav .cd-subnav-trigger {\n        z-index: 1;\n        border: 1px solid rgba(255, 255, 255, 0.2);\n        border-radius: 5em;\n        -webkit-transition: border 0.3s;\n        -moz-transition: border 0.3s;\n        transition: border 0.3s; }\n        .cd-main-nav .cd-subnav-trigger:hover {\n          border-color: rgba(255, 255, 255, 0.4); }\n        .cd-main-nav .cd-subnav-trigger::before, .cd-main-nav .cd-subnav-trigger::after {\n          top: 22px;\n          right: 17px;\n          background-color: #ffffff;\n          /* change transform-origin to rotate the arrow */\n          -webkit-transform-origin: 50% 50%;\n          -moz-transform-origin: 50% 50%;\n          -ms-transform-origin: 50% 50%;\n          -o-transform-origin: 50% 50%;\n          transform-origin: 50% 50%;\n          -webkit-transition: -webkit-transform 0.3s, width 0.3s, right 0.3s;\n          -moz-transition: -moz-transform 0.3s, width 0.3s, right 0.3s;\n          transition: transform 0.3s, width 0.3s, right 0.3s; }\n        .cd-main-nav .cd-subnav-trigger::before {\n          right: 23px; }\n      .cd-main-nav .cd-subnav-trigger, .cd-main-nav .placeholder {\n        padding-right: 2.4em;\n        padding-left: 1.1em; }\n      .cd-main-nav li ul {\n        height: 80px;\n        background-color: #7e4d7e;\n        /* padding left = logo size + logo left position*/\n        padding: 0 5% 0 calc(5% + 124px);\n        -webkit-transform: translateY(-80px);\n        -moz-transform: translateY(-80px);\n        -ms-transform: translateY(-80px);\n        -o-transform: translateY(-80px);\n        transform: translateY(-80px);\n        -webkit-transition: -webkit-transform 0.3s 0.2s;\n        -moz-transition: -moz-transform 0.3s 0.2s;\n        transition: transform 0.3s 0.2s; }\n      .cd-main-nav li ul li {\n        opacity: 0;\n        -webkit-transform: translateY(-20px);\n        -moz-transform: translateY(-20px);\n        -ms-transform: translateY(-20px);\n        -o-transform: translateY(-20px);\n        transform: translateY(-20px);\n        -webkit-transition: -webkit-transform 0.3s 0s, opacity 0.3s 0s;\n        -moz-transition: -moz-transform 0.3s 0s, opacity 0.3s 0s;\n        transition: transform 0.3s 0s, opacity 0.3s 0s; }\n      .cd-main-nav .placeholder {\n        /* never visible or clickable- it is used to take up the same space as the .cd-subnav-trigger */\n        display: block;\n        visibility: hidden;\n        opacity: 0;\n        pointer-event: none; }\n      .cd-main-nav.moves-out > li > a {\n        -webkit-transform: translateX(0);\n        -moz-transform: translateX(0);\n        -ms-transform: translateX(0);\n        -o-transform: translateX(0);\n        transform: translateX(0);\n        opacity: 1; }\n      .cd-main-nav.moves-out > li > ul {\n        -webkit-transition: -webkit-transform 0.3s;\n        -moz-transition: -moz-transform 0.3s;\n        transition: transform 0.3s;\n        -webkit-transform: translateY(0);\n        -moz-transform: translateY(0);\n        -ms-transform: translateY(0);\n        -o-transform: translateY(0);\n        transform: translateY(0); }\n      .cd-main-nav.moves-out > li ul li {\n        opacity: 1;\n        -webkit-transform: translateY(0);\n        -moz-transform: translateY(0);\n        -ms-transform: translateY(0);\n        -o-transform: translateY(0);\n        transform: translateY(0);\n        -webkit-transition: -webkit-transform 0.3s 0.2s, opacity 0.3s 0.2s;\n        -moz-transition: -moz-transform 0.3s 0.2s, opacity 0.3s 0.2s;\n        transition: transform 0.3s 0.2s, opacity 0.3s 0.2s; }\n      .cd-main-nav.moves-out .cd-subnav-trigger::before, .cd-main-nav.moves-out .cd-subnav-trigger::after {\n        width: 14px;\n        right: 17px; }\n      .cd-main-nav.moves-out .cd-subnav-trigger::before {\n        -webkit-transform: rotate(225deg);\n        -moz-transform: rotate(225deg);\n        -ms-transform: rotate(225deg);\n        -o-transform: rotate(225deg);\n        transform: rotate(225deg); }\n      .cd-main-nav.moves-out .cd-subnav-trigger::after {\n        -webkit-transform: rotate(135deg);\n        -moz-transform: rotate(135deg);\n        -ms-transform: rotate(135deg);\n        -o-transform: rotate(135deg);\n        transform: rotate(135deg); } }\n\n.cd-main-content::before {\n  /* never visible - this is used in jQuery to check the current MQ */\n  display: none;\n  content: 'mobile'; }\n  @media only screen and (min-width: 1170px) {\n    .cd-main-content::before {\n      content: 'desktop'; } }\n\n.cd-main-content {\n  position: relative;\n  z-index: 2;\n  min-height: 100vh;\n  padding-top: 50px;\n  background-color: #f2f2f2;\n  -webkit-transition: -webkit-transform 0.3s;\n  -moz-transition: -moz-transform 0.3s;\n  transition: transform 0.3s; }\n  .cd-main-content.nav-is-visible {\n    -webkit-transform: translateX(-260px);\n    -moz-transform: translateX(-260px);\n    -ms-transform: translateX(-260px);\n    -o-transform: translateX(-260px);\n    transform: translateX(-260px); }\n  @media only screen and (min-width: 1170px) {\n    .cd-main-content {\n      padding-top: 80px; }\n      .cd-main-content.nav-is-visible {\n        -webkit-transform: translateX(0);\n        -moz-transform: translateX(0);\n        -ms-transform: translateX(0);\n        -o-transform: translateX(0);\n        transform: translateX(0); } }\n\n.no-js .cd-nav-trigger, .no-js .cd-subnav-trigger {\n  display: none; }\n\n.no-js header {\n  position: relative;\n  height: auto; }\n\n.no-js .cd-logo img {\n  margin-bottom: 14px; }\n\n.no-js .cd-main-nav {\n  position: static;\n  width: 100%;\n  height: auto;\n  visibility: visible;\n  overflow: visible; }\n  .no-js .cd-main-nav li {\n    display: inline-block; }\n    .no-js .cd-main-nav li:last-child {\n      display: block; }\n  .no-js .cd-main-nav .go-back {\n    display: none; }\n  .no-js .cd-main-nav li ul {\n    position: static;\n    width: 100%;\n    -webkit-transform: translateX(0);\n    -moz-transform: translateX(0);\n    -ms-transform: translateX(0);\n    -o-transform: translateX(0);\n    transform: translateX(0); }\n  @media only screen and (min-width: 1170px) {\n    .no-js .cd-main-nav {\n      height: 80px; }\n      .no-js .cd-main-nav li ul {\n        position: absolute;\n        top: 80px; }\n      .no-js .cd-main-nav li ul li {\n        -webkit-transform: translateY(0);\n        -moz-transform: translateY(0);\n        -ms-transform: translateY(0);\n        -o-transform: translateY(0);\n        transform: translateY(0);\n        opacity: 1; }\n        .no-js .cd-main-nav li ul li:last-child {\n          display: none; } }\n\n.no-js .cd-main-content {\n  padding-top: 0; }\n  @media only screen and (min-width: 1170px) {\n    .no-js .cd-main-content {\n      padding-top: 80px; } }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 202 */
+/* 201 */
 /***/ function(module, exports) {
 
 	/*
@@ -23783,7 +23824,7 @@
 
 
 /***/ },
-/* 203 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -24008,14 +24049,14 @@
 
 
 /***/ },
-/* 204 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var TimelineContainer = __webpack_require__(205);
-	var CreateRecord = __webpack_require__(211);
+	var TimelineContainer = __webpack_require__(204);
+	var CreateRecord = __webpack_require__(214);
 
 	var Home = React.createClass({
 	    displayName: 'Home',
@@ -24031,7 +24072,8 @@
 	            this.state.todoList.push({
 	                title: "Title of section " + i,
 	                details: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut." + "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.",
-	                dateTime: "Jan " + i
+	                dateTime: "Jan " + i,
+	                status: i % 3
 	            });
 	        }
 
@@ -24047,13 +24089,13 @@
 	module.exports = Home;
 
 /***/ },
-/* 205 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var TimelineBlock = __webpack_require__(206);
+	var TimelineBlock = __webpack_require__(205);
 	var AddRecord = __webpack_require__(207);
 	__webpack_require__(208);
 
@@ -24083,42 +24125,54 @@
 	module.exports = TimelineContainer;
 
 /***/ },
-/* 206 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
+	var classNames = __webpack_require__(206);
 
 	var TimelineBlock = React.createClass({
-	    displayName: "TimelineBlock",
+	    displayName: 'TimelineBlock',
 
 	    render: function render() {
+	        var img_classes = classNames({
+	            'cd-timeline-img': true,
+	            'cd-smile': this.props.todoItem.status === 0,
+	            'cd-face': this.props.todoItem.status === 1,
+	            'cd-sadly': this.props.todoItem.status === 2
+	        });
+
 	        return React.createElement(
-	            "div",
-	            { className: "cd-timeline-block" },
-	            React.createElement("div", { className: "cd-timeline-img cd-picture" }),
+	            'div',
+	            { className: 'cd-timeline-block' },
 	            React.createElement(
-	                "div",
-	                { className: "cd-timeline-content" },
+	                'div',
+	                { className: img_classes },
+	                React.createElement('span', null)
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'cd-timeline-content' },
 	                React.createElement(
-	                    "h2",
+	                    'h2',
 	                    null,
 	                    this.props.todoItem.title
 	                ),
 	                React.createElement(
-	                    "p",
+	                    'p',
 	                    null,
 	                    this.props.todoItem.details
 	                ),
 	                React.createElement(
-	                    "a",
-	                    { href: "#0", className: "cd-read-more" },
-	                    "Read more"
+	                    'a',
+	                    { href: '#0', className: 'cd-read-more' },
+	                    'Read more'
 	                ),
 	                React.createElement(
-	                    "span",
-	                    { className: "cd-date" },
+	                    'span',
+	                    { className: 'cd-date' },
 	                    this.props.todoItem.dateTime
 	                )
 	            )
@@ -24128,6 +24182,61 @@
 	});
 
 	module.exports = TimelineBlock;
+
+/***/ },
+/* 206 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2015 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+
+	(function () {
+		'use strict';
+
+		function classNames () {
+
+			var classes = '';
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if ('string' === argType || 'number' === argType) {
+					classes += ' ' + arg;
+
+				} else if (Array.isArray(arg)) {
+					classes += ' ' + classNames.apply(null, arg);
+
+				} else if ('object' === argType) {
+					for (var key in arg) {
+						if (arg.hasOwnProperty(key) && arg[key]) {
+							classes += ' ' + key;
+						}
+					}
+				}
+			}
+
+			return classes.substr(1);
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true){
+			// AMD. Register as an anonymous module.
+			!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+
+	}());
+
 
 /***/ },
 /* 207 */
@@ -24150,7 +24259,7 @@
 	            React.createElement(
 	                'div',
 	                { className: 'cd-timeline-img cd-add', onClick: this.handleAdd },
-	                React.createElement('img', { src: 'img/cd-icon-add.svg', alt: '' })
+	                React.createElement('span', null)
 	            )
 	        );
 	    }
@@ -24168,7 +24277,7 @@
 	var content = __webpack_require__(209);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(203)(content, {});
+	var update = __webpack_require__(202)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -24188,12 +24297,12 @@
 /* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(202)();
+	exports = module.exports = __webpack_require__(201)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/* --------------------------------\r\n\r\nModules - reusable parts of our design\r\n\r\n-------------------------------- */\n.cd-container {\n  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */\n  width: 90%;\n  max-width: 1170px;\n  margin: 0 auto; }\n  .cd-container::after {\n    /* clearfix */\n    content: '';\n    display: table;\n    clear: both; }\n\n/* --------------------------------\r\n\r\nMain components\r\n\r\n-------------------------------- */\n#cd-timeline {\n  position: relative;\n  padding: 2em 0;\n  margin-top: 2em;\n  margin-bottom: 2em; }\n  #cd-timeline::before {\n    /* this is the vertical line */\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 18px;\n    height: 100%;\n    width: 4px;\n    background: #d7e4ed; }\n  @media only screen and (min-width: 1170px) {\n    #cd-timeline {\n      margin-top: 3em;\n      margin-bottom: 3em; }\n      #cd-timeline::before {\n        left: 50%;\n        margin-left: -2px; } }\n\n.cd-timeline-block {\n  position: relative;\n  margin: 2em 0; }\n  .cd-timeline-block::after {\n    clear: both;\n    content: \"\";\n    display: table; }\n  .cd-timeline-block:first-child {\n    margin-top: 0; }\n  .cd-timeline-block.add-child {\n    margin-top: 20px;\n    margin-bottom: 100px; }\n  .cd-timeline-block:last-child {\n    margin-bottom: 0; }\n  @media only screen and (min-width: 1170px) {\n    .cd-timeline-block {\n      margin: 4em 0; }\n      .cd-timeline-block:first-child {\n        margin-top: 0; }\n      .cd-timeline-block:last-child {\n        margin-bottom: 0; } }\n\n.cd-timeline-img {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05); }\n  .cd-timeline-img img {\n    display: block;\n    width: 24px;\n    height: 24px;\n    position: relative;\n    left: 50%;\n    top: 50%;\n    margin-left: -12px;\n    margin-top: -12px;\n    transition: 1s; }\n  .cd-timeline-img:hover {\n    cursor: pointer; }\n    @media only screen and (min-width: 1170px) {\n      .cd-timeline-img:hover {\n        width: 80px;\n        height: 80px;\n        left: 50%;\n        margin-left: -40px; } }\n  .cd-timeline-img.cd-picture {\n    background: #75ce66; }\n  .cd-timeline-img.cd-movie {\n    background: #c03b44; }\n  .cd-timeline-img.cd-location {\n    background: #f0ca45; }\n  .cd-timeline-img.cd-add {\n    background: #f0ca45;\n    background: url(" + __webpack_require__(210) + ") no-repeat center center; }\n  @media only screen and (min-width: 1170px) {\n    .cd-timeline-img {\n      width: 60px;\n      height: 60px;\n      left: 50%;\n      margin-left: -30px;\n      /* Force Hardware Acceleration in WebKit */\n      -webkit-transform: translateZ(0);\n      -webkit-backface-visibility: hidden; }\n      .cssanimations .cd-timeline-img.is-hidden {\n        visibility: hidden; }\n      .cssanimations .cd-timeline-img.bounce-in {\n        visibility: visible;\n        -webkit-animation: cd-bounce-1 0.6s;\n        -moz-animation: cd-bounce-1 0.6s;\n        animation: cd-bounce-1 0.6s; } }\n\n@-webkit-keyframes cd-bounce-1 {\n  0% {\n    opacity: 0;\n    -webkit-transform: scale(0.5); }\n  60% {\n    opacity: 1;\n    -webkit-transform: scale(1.2); }\n  100% {\n    -webkit-transform: scale(1); } }\n\n@-moz-keyframes cd-bounce-1 {\n  0% {\n    opacity: 0;\n    -moz-transform: scale(0.5); }\n  60% {\n    opacity: 1;\n    -moz-transform: scale(1.2); }\n  100% {\n    -moz-transform: scale(1); } }\n\n@keyframes cd-bounce-1 {\n  0% {\n    opacity: 0;\n    -webkit-transform: scale(0.5);\n    -moz-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    -o-transform: scale(0.5);\n    transform: scale(0.5); }\n  60% {\n    opacity: 1;\n    -webkit-transform: scale(1.2);\n    -moz-transform: scale(1.2);\n    -ms-transform: scale(1.2);\n    -o-transform: scale(1.2);\n    transform: scale(1.2); }\n  100% {\n    -webkit-transform: scale(1);\n    -moz-transform: scale(1);\n    -ms-transform: scale(1);\n    -o-transform: scale(1);\n    transform: scale(1); } }\n\n.cd-timeline-content {\n  position: relative;\n  margin-left: 60px;\n  background: #ffffff;\n  border-radius: 0.25em;\n  padding: 1em;\n  box-shadow: 0 3px 0 #d7e4ed; }\n  .cd-timeline-content::after {\n    clear: both;\n    content: \"\";\n    display: table; }\n  .cd-timeline-content h2 {\n    color: #303e49; }\n  .cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {\n    font-size: 13px;\n    font-size: 0.8125rem; }\n  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {\n    display: inline-block; }\n  .cd-timeline-content p {\n    margin: 1em 0;\n    line-height: 1.6; }\n  .cd-timeline-content .cd-read-more {\n    float: right;\n    padding: 0.8em 1em;\n    background: #acb7c0;\n    color: #ffffff;\n    border-radius: 0.25em; }\n    .no-touch .cd-timeline-content .cd-read-more:hover {\n      background-color: #bac4cb; }\n  .cd-timeline-content .cd-date {\n    float: left;\n    padding: .8em 0;\n    opacity: .7; }\n  .cd-timeline-content::before {\n    content: '';\n    position: absolute;\n    top: 16px;\n    right: 100%;\n    height: 0;\n    width: 0;\n    border: 7px solid transparent;\n    border-right: 7px solid #ffffff; }\n  @media only screen and (min-width: 768px) {\n    .cd-timeline-content h2 {\n      font-size: 20px;\n      font-size: 1.25rem; }\n    .cd-timeline-content p {\n      font-size: 16px;\n      font-size: 1rem; }\n    .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {\n      font-size: 14px;\n      font-size: 0.875rem; } }\n  @media only screen and (min-width: 1170px) {\n    .cd-timeline-content {\n      margin-left: 0;\n      padding: 1.6em;\n      width: 45%; }\n      .cd-timeline-content::before {\n        top: 24px;\n        left: 100%;\n        border-color: transparent;\n        border-left-color: #ffffff; }\n      .cd-timeline-content .cd-read-more {\n        float: left; }\n      .cd-timeline-content .cd-date {\n        position: absolute;\n        width: 100%;\n        left: 122%;\n        top: 6px;\n        font-size: 16px;\n        font-size: 1rem; }\n      .cd-timeline-block:nth-child(even) .cd-timeline-content {\n        float: right; }\n        .cd-timeline-block:nth-child(even) .cd-timeline-content::before {\n          top: 24px;\n          left: auto;\n          right: 100%;\n          border-color: transparent;\n          border-right-color: #ffffff; }\n        .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {\n          float: right; }\n        .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {\n          left: auto;\n          right: 122%;\n          text-align: right; }\n      .cssanimations .cd-timeline-content.is-hidden {\n        visibility: hidden; }\n      .cssanimations .cd-timeline-content.bounce-in {\n        visibility: visible;\n        -webkit-animation: cd-bounce-2 0.6s;\n        -moz-animation: cd-bounce-2 0.6s;\n        animation: cd-bounce-2 0.6s; } }\n\n@media only screen and (min-width: 1170px) {\n  /* inverse bounce effect on even content blocks */\n  .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {\n    -webkit-animation: cd-bounce-2-inverse 0.6s;\n    -moz-animation: cd-bounce-2-inverse 0.6s;\n    animation: cd-bounce-2-inverse 0.6s; } }\n\n@-webkit-keyframes cd-bounce-2 {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateX(-100px); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translateX(20px); }\n  100% {\n    -webkit-transform: translateX(0); } }\n\n@-moz-keyframes cd-bounce-2 {\n  0% {\n    opacity: 0;\n    -moz-transform: translateX(-100px); }\n  60% {\n    opacity: 1;\n    -moz-transform: translateX(20px); }\n  100% {\n    -moz-transform: translateX(0); } }\n\n@keyframes cd-bounce-2 {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateX(-100px);\n    -moz-transform: translateX(-100px);\n    -ms-transform: translateX(-100px);\n    -o-transform: translateX(-100px);\n    transform: translateX(-100px); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translateX(20px);\n    -moz-transform: translateX(20px);\n    -ms-transform: translateX(20px);\n    -o-transform: translateX(20px);\n    transform: translateX(20px); }\n  100% {\n    -webkit-transform: translateX(0);\n    -moz-transform: translateX(0);\n    -ms-transform: translateX(0);\n    -o-transform: translateX(0);\n    transform: translateX(0); } }\n\n@-webkit-keyframes cd-bounce-2-inverse {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateX(100px); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translateX(-20px); }\n  100% {\n    -webkit-transform: translateX(0); } }\n\n@-moz-keyframes cd-bounce-2-inverse {\n  0% {\n    opacity: 0;\n    -moz-transform: translateX(100px); }\n  60% {\n    opacity: 1;\n    -moz-transform: translateX(-20px); }\n  100% {\n    -moz-transform: translateX(0); } }\n\n@keyframes cd-bounce-2-inverse {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateX(100px);\n    -moz-transform: translateX(100px);\n    -ms-transform: translateX(100px);\n    -o-transform: translateX(100px);\n    transform: translateX(100px); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translateX(-20px);\n    -moz-transform: translateX(-20px);\n    -ms-transform: translateX(-20px);\n    -o-transform: translateX(-20px);\n    transform: translateX(-20px); }\n  100% {\n    -webkit-transform: translateX(0);\n    -moz-transform: translateX(0);\n    -ms-transform: translateX(0);\n    -o-transform: translateX(0);\n    transform: translateX(0); } }\n", ""]);
+	exports.push([module.id, "/* --------------------------------\r\n\r\nModules - reusable parts of our design\r\n\r\n-------------------------------- */\n.cd-container {\n  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */\n  width: 90%;\n  max-width: 1170px;\n  margin: 0 auto; }\n  .cd-container::after {\n    /* clearfix */\n    content: '';\n    display: table;\n    clear: both; }\n\n/* --------------------------------\r\n\r\nMain components\r\n\r\n-------------------------------- */\n#cd-timeline {\n  position: relative;\n  padding: 2em 0;\n  margin-top: 2em;\n  margin-bottom: 2em; }\n  #cd-timeline::before {\n    /* this is the vertical line */\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 18px;\n    height: 100%;\n    width: 4px;\n    background: #d7e4ed; }\n  @media only screen and (min-width: 1170px) {\n    #cd-timeline {\n      margin-top: 3em;\n      margin-bottom: 3em; }\n      #cd-timeline::before {\n        left: 50%;\n        margin-left: -2px; } }\n\n.cd-timeline-block {\n  position: relative;\n  margin: 2em 0; }\n  .cd-timeline-block::after {\n    clear: both;\n    content: \"\";\n    display: table; }\n  .cd-timeline-block:first-child {\n    margin-top: 0; }\n  .cd-timeline-block.add-child {\n    margin-top: 20px;\n    margin-bottom: 100px; }\n  .cd-timeline-block:last-child {\n    margin-bottom: 0; }\n  @media only screen and (min-width: 1170px) {\n    .cd-timeline-block {\n      margin: 4em 0; }\n      .cd-timeline-block:first-child {\n        margin-top: 0; }\n      .cd-timeline-block:last-child {\n        margin-bottom: 0; } }\n\n.cd-timeline-img {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05); }\n  .cd-timeline-img span {\n    display: block;\n    width: 48px;\n    height: 48px;\n    position: relative;\n    left: 50%;\n    top: 50%;\n    margin-left: -24px;\n    margin-top: -24px;\n    transition: 1s; }\n  .cd-timeline-img:hover {\n    cursor: pointer; }\n    @media only screen and (min-width: 1170px) {\n      .cd-timeline-img:hover {\n        width: 80px;\n        height: 80px;\n        left: 50%;\n        margin-left: -40px; } }\n  .cd-timeline-img.cd-smile {\n    background: #f0ca45; }\n    .cd-timeline-img.cd-smile span {\n      background: url(" + __webpack_require__(210) + ") no-repeat center; }\n  .cd-timeline-img.cd-sadly {\n    background: #75ce66; }\n    .cd-timeline-img.cd-sadly span {\n      background: url(" + __webpack_require__(211) + ") no-repeat center; }\n  .cd-timeline-img.cd-face {\n    background: #c03b44; }\n    .cd-timeline-img.cd-face span {\n      background: url(" + __webpack_require__(212) + ") no-repeat center; }\n  .cd-timeline-img.cd-add {\n    background: #f0ca45; }\n    .cd-timeline-img.cd-add span {\n      display: block;\n      width: 24px;\n      height: 24px;\n      position: relative;\n      left: 50%;\n      top: 50%;\n      margin-left: -12px;\n      margin-top: -12px;\n      transition: 1s;\n      background: url(" + __webpack_require__(213) + ") no-repeat center; }\n  @media only screen and (min-width: 1170px) {\n    .cd-timeline-img {\n      width: 60px;\n      height: 60px;\n      left: 50%;\n      margin-left: -30px;\n      /* Force Hardware Acceleration in WebKit */\n      -webkit-transform: translateZ(0);\n      -webkit-backface-visibility: hidden; }\n      .cssanimations .cd-timeline-img.is-hidden {\n        visibility: hidden; }\n      .cssanimations .cd-timeline-img.bounce-in {\n        visibility: visible;\n        -webkit-animation: cd-bounce-1 0.6s;\n        -moz-animation: cd-bounce-1 0.6s;\n        animation: cd-bounce-1 0.6s; } }\n\n@-webkit-keyframes cd-bounce-1 {\n  0% {\n    opacity: 0;\n    -webkit-transform: scale(0.5); }\n  60% {\n    opacity: 1;\n    -webkit-transform: scale(1.2); }\n  100% {\n    -webkit-transform: scale(1); } }\n\n@-moz-keyframes cd-bounce-1 {\n  0% {\n    opacity: 0;\n    -moz-transform: scale(0.5); }\n  60% {\n    opacity: 1;\n    -moz-transform: scale(1.2); }\n  100% {\n    -moz-transform: scale(1); } }\n\n@keyframes cd-bounce-1 {\n  0% {\n    opacity: 0;\n    -webkit-transform: scale(0.5);\n    -moz-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    -o-transform: scale(0.5);\n    transform: scale(0.5); }\n  60% {\n    opacity: 1;\n    -webkit-transform: scale(1.2);\n    -moz-transform: scale(1.2);\n    -ms-transform: scale(1.2);\n    -o-transform: scale(1.2);\n    transform: scale(1.2); }\n  100% {\n    -webkit-transform: scale(1);\n    -moz-transform: scale(1);\n    -ms-transform: scale(1);\n    -o-transform: scale(1);\n    transform: scale(1); } }\n\n.cd-timeline-content {\n  position: relative;\n  margin-left: 60px;\n  background: #ffffff;\n  border-radius: 0.25em;\n  padding: 1em;\n  box-shadow: 0 3px 0 #d7e4ed; }\n  .cd-timeline-content::after {\n    clear: both;\n    content: \"\";\n    display: table; }\n  .cd-timeline-content h2 {\n    color: #c3c3c3; }\n  .cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {\n    font-size: 13px;\n    font-size: 0.8125rem; }\n  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {\n    display: inline-block; }\n  .cd-timeline-content p {\n    margin: 1em 0;\n    line-height: 1.6; }\n  .cd-timeline-content .cd-read-more {\n    float: right;\n    padding: 0.8em 1em;\n    background: #acb7c0;\n    color: #ffffff;\n    border-radius: 0.25em; }\n    .no-touch .cd-timeline-content .cd-read-more:hover {\n      background-color: #bac4cb; }\n  .cd-timeline-content .cd-date {\n    float: left;\n    padding: .8em 0;\n    opacity: .7; }\n  .cd-timeline-content::before {\n    content: '';\n    position: absolute;\n    top: 16px;\n    right: 100%;\n    height: 0;\n    width: 0;\n    border: 7px solid transparent;\n    border-right: 7px solid #ffffff; }\n  @media only screen and (min-width: 768px) {\n    .cd-timeline-content h2 {\n      font-size: 20px;\n      font-size: 1.25rem; }\n    .cd-timeline-content p {\n      font-size: 16px;\n      font-size: 1rem; }\n    .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {\n      font-size: 14px;\n      font-size: 0.875rem; } }\n  @media only screen and (min-width: 1170px) {\n    .cd-timeline-content {\n      margin-left: 0;\n      padding: 1.6em;\n      width: 45%; }\n      .cd-timeline-content::before {\n        top: 24px;\n        left: 100%;\n        border-color: transparent;\n        border-left-color: #ffffff; }\n      .cd-timeline-content .cd-read-more {\n        float: left; }\n      .cd-timeline-content .cd-date {\n        position: absolute;\n        width: 100%;\n        left: 122%;\n        top: 6px;\n        font-size: 16px;\n        font-size: 1rem; }\n      .cd-timeline-block:nth-child(even) .cd-timeline-content {\n        float: right; }\n        .cd-timeline-block:nth-child(even) .cd-timeline-content::before {\n          top: 24px;\n          left: auto;\n          right: 100%;\n          border-color: transparent;\n          border-right-color: #ffffff; }\n        .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {\n          float: right; }\n        .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {\n          left: auto;\n          right: 122%;\n          text-align: right; }\n      .cssanimations .cd-timeline-content.is-hidden {\n        visibility: hidden; }\n      .cssanimations .cd-timeline-content.bounce-in {\n        visibility: visible;\n        -webkit-animation: cd-bounce-2 0.6s;\n        -moz-animation: cd-bounce-2 0.6s;\n        animation: cd-bounce-2 0.6s; } }\n\n@media only screen and (min-width: 1170px) {\n  /* inverse bounce effect on even content blocks */\n  .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {\n    -webkit-animation: cd-bounce-2-inverse 0.6s;\n    -moz-animation: cd-bounce-2-inverse 0.6s;\n    animation: cd-bounce-2-inverse 0.6s; } }\n\n@-webkit-keyframes cd-bounce-2 {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateX(-100px); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translateX(20px); }\n  100% {\n    -webkit-transform: translateX(0); } }\n\n@-moz-keyframes cd-bounce-2 {\n  0% {\n    opacity: 0;\n    -moz-transform: translateX(-100px); }\n  60% {\n    opacity: 1;\n    -moz-transform: translateX(20px); }\n  100% {\n    -moz-transform: translateX(0); } }\n\n@keyframes cd-bounce-2 {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateX(-100px);\n    -moz-transform: translateX(-100px);\n    -ms-transform: translateX(-100px);\n    -o-transform: translateX(-100px);\n    transform: translateX(-100px); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translateX(20px);\n    -moz-transform: translateX(20px);\n    -ms-transform: translateX(20px);\n    -o-transform: translateX(20px);\n    transform: translateX(20px); }\n  100% {\n    -webkit-transform: translateX(0);\n    -moz-transform: translateX(0);\n    -ms-transform: translateX(0);\n    -o-transform: translateX(0);\n    transform: translateX(0); } }\n\n@-webkit-keyframes cd-bounce-2-inverse {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateX(100px); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translateX(-20px); }\n  100% {\n    -webkit-transform: translateX(0); } }\n\n@-moz-keyframes cd-bounce-2-inverse {\n  0% {\n    opacity: 0;\n    -moz-transform: translateX(100px); }\n  60% {\n    opacity: 1;\n    -moz-transform: translateX(-20px); }\n  100% {\n    -moz-transform: translateX(0); } }\n\n@keyframes cd-bounce-2-inverse {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateX(100px);\n    -moz-transform: translateX(100px);\n    -ms-transform: translateX(100px);\n    -o-transform: translateX(100px);\n    transform: translateX(100px); }\n  60% {\n    opacity: 1;\n    -webkit-transform: translateX(-20px);\n    -moz-transform: translateX(-20px);\n    -ms-transform: translateX(-20px);\n    -o-transform: translateX(-20px);\n    transform: translateX(-20px); }\n  100% {\n    -webkit-transform: translateX(0);\n    -moz-transform: translateX(0);\n    -ms-transform: translateX(0);\n    -o-transform: translateX(0);\n    transform: translateX(0); } }\n", ""]);
 
 	// exports
 
@@ -24202,25 +24311,48 @@
 /* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "dist/5f5c57b23975ed6462d9f8a3f77138da.svg"
+	module.exports = __webpack_require__.p + "dist/2e620bcf2eceeb364a68d7fc74a9bdac.svg"
 
 /***/ },
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__.p + "dist/f0bab4a1c5f9552d5bad1e23e76e9b23.svg"
+
+/***/ },
+/* 212 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "dist/ea4c194717c21c8422ced7c35c4116c7.svg"
+
+/***/ },
+/* 213 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "dist/5f5c57b23975ed6462d9f8a3f77138da.svg"
+
+/***/ },
+/* 214 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var classnames = __webpack_require__(206);
 
-	__webpack_require__(212);
+	__webpack_require__(215);
 
 	var CreateRecord = React.createClass({
 	    displayName: 'CreateRecord',
 
 	    render: function render() {
+	        var record_class = classnames({
+	            "cd-record": true,
+	            "cd-not-active": false
+	        });
 	        return React.createElement(
 	            'div',
-	            { className: 'cd-record' },
+	            { className: record_class },
 	            React.createElement(
 	                'form',
 	                { className: 'cd-form floating-labels' },
@@ -24230,7 +24362,7 @@
 	                    React.createElement(
 	                        'legend',
 	                        null,
-	                        'Project Info'
+	                        '今日达成情况'
 	                    ),
 	                    React.createElement(
 	                        'div',
@@ -24238,7 +24370,7 @@
 	                        React.createElement(
 	                            'label',
 	                            { className: 'cd-label', 'for': 'cd-textarea' },
-	                            'Project description'
+	                            '为了目标今天做了什么？'
 	                        ),
 	                        React.createElement('textarea', { className: 'message', name: 'cd-textarea', id: 'cd-textarea', required: true })
 	                    ),
@@ -24248,7 +24380,7 @@
 	                        React.createElement(
 	                            'h4',
 	                            null,
-	                            'Budget'
+	                            '自我评价'
 	                        ),
 	                        React.createElement(
 	                            'p',
@@ -24259,22 +24391,17 @@
 	                                React.createElement(
 	                                    'option',
 	                                    { value: '0' },
-	                                    'Select Budget'
+	                                    '状态非常棒'
 	                                ),
 	                                React.createElement(
 	                                    'option',
 	                                    { value: '1' },
-	                                    '< $5000'
+	                                    '感觉一般'
 	                                ),
 	                                React.createElement(
 	                                    'option',
 	                                    { value: '2' },
-	                                    '$5000 - $10000'
-	                                ),
-	                                React.createElement(
-	                                    'option',
-	                                    { value: '3' },
-	                                    '> $10000'
+	                                    '需要鼓励'
 	                                )
 	                            )
 	                        )
@@ -24285,7 +24412,7 @@
 	                        React.createElement(
 	                            'h4',
 	                            null,
-	                            'Project type'
+	                            '执行时间'
 	                        ),
 	                        React.createElement(
 	                            'ul',
@@ -24297,7 +24424,7 @@
 	                                React.createElement(
 	                                    'label',
 	                                    { 'for': 'cd-radio-1' },
-	                                    'Choice 1'
+	                                    '1小时'
 	                                )
 	                            ),
 	                            React.createElement(
@@ -24307,7 +24434,7 @@
 	                                React.createElement(
 	                                    'label',
 	                                    { 'for': 'cd-radio-2' },
-	                                    'Choice 2'
+	                                    '半小时'
 	                                )
 	                            ),
 	                            React.createElement(
@@ -24317,7 +24444,7 @@
 	                                React.createElement(
 	                                    'label',
 	                                    { 'for': 'cd-radio-3' },
-	                                    'Choice 3'
+	                                    '今天没能继续'
 	                                )
 	                            )
 	                        )
@@ -24325,7 +24452,7 @@
 	                    React.createElement(
 	                        'div',
 	                        null,
-	                        React.createElement('input', { type: 'submit', value: 'Send Message' })
+	                        React.createElement('input', { type: 'submit', value: '记录' })
 	                    )
 	                )
 	            )
@@ -24336,16 +24463,16 @@
 	module.exports = CreateRecord;
 
 /***/ },
-/* 212 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(213);
+	var content = __webpack_require__(216);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(203)(content, {});
+	var update = __webpack_require__(202)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -24362,75 +24489,75 @@
 	}
 
 /***/ },
-/* 213 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(202)();
+	exports = module.exports = __webpack_require__(201)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/* --------------------------------\r\n\r\nForm\r\n\r\n-------------------------------- */\n.cd-record {\n  width: 100%;\n  max-width: 768px;\n  margin: 4em auto;\n  background: #aab7ab;\n  padding: 3em;\n  -moz-border-radius: 5px;\n  -webkit-border-radius: 5px;\n  border-radius: 5px; }\n\n.cd-form {\n  width: 90%;\n  max-width: 768px;\n  margin: 4em auto; }\n  .cd-form::after {\n    clear: both;\n    content: \"\";\n    display: table; }\n  .cd-form fieldset {\n    margin: 24px 0; }\n  .cd-form legend {\n    padding-bottom: 10px;\n    margin-bottom: 20px;\n    font-size: 2rem;\n    border-bottom: 1px solid #ecf0f1; }\n  .cd-form div {\n    /* form element wrapper */\n    position: relative;\n    margin: 20px 0; }\n  .cd-form h4, .cd-form .cd-label {\n    font-size: 1.3rem;\n    color: #94aab0;\n    margin-bottom: 10px; }\n  .cd-form .cd-label {\n    display: block; }\n  .cd-form input, .cd-form textarea, .cd-form select, .cd-form label {\n    font-family: \"Droid Serif\", serif;\n    font-size: 1.6rem;\n    color: #2b3e51; }\n  .cd-form input[type=\"text\"],\n  .cd-form input[type=\"email\"],\n  .cd-form textarea,\n  .cd-form select,\n  .cd-form legend {\n    display: block;\n    width: 100%;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    -ms-appearance: none;\n    -o-appearance: none;\n    appearance: none; }\n  .cd-form input[type=\"text\"],\n  .cd-form input[type=\"email\"],\n  .cd-form textarea,\n  .cd-form select {\n    /* general style for input elements */\n    padding: 12px;\n    border: 1px solid #cfd9db;\n    background-color: #ffffff;\n    border-radius: .25em;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08); }\n    .cd-form input[type=\"text\"]:focus,\n    .cd-form input[type=\"email\"]:focus,\n    .cd-form textarea:focus,\n    .cd-form select:focus {\n      outline: none;\n      border-color: #2c97de;\n      box-shadow: 0 0 5px rgba(44, 151, 222, 0.2); }\n  .cd-form .cd-select {\n    /* select element wapper */\n    position: relative; }\n    .cd-form .cd-select::after {\n      /* arrow icon for select element */\n      content: '';\n      position: absolute;\n      z-index: 1;\n      right: 16px;\n      top: 50%;\n      margin-top: -8px;\n      display: block;\n      width: 16px;\n      height: 16px;\n      background: url(" + __webpack_require__(214) + ") no-repeat center center;\n      pointer-events: none; }\n  .cd-form select {\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);\n    cursor: pointer; }\n  .cd-form select::-ms-expand {\n    display: none; }\n  .cd-form .cd-form-list {\n    margin-top: 16px; }\n    .cd-form .cd-form-list::after {\n      clear: both;\n      content: \"\";\n      display: table; }\n  .cd-form .cd-form-list li {\n    /* wrapper for radio and checkbox input types */\n    display: inline-block;\n    position: relative;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    margin: 0 26px 16px 0;\n    float: left; }\n  .cd-form input[type=radio],\n  .cd-form input[type=checkbox] {\n    /* hide original check and radio buttons */\n    position: absolute;\n    left: 0;\n    top: 50%;\n    -webkit-transform: translateY(-50%);\n    -moz-transform: translateY(-50%);\n    -ms-transform: translateY(-50%);\n    -o-transform: translateY(-50%);\n    transform: translateY(-50%);\n    margin: 0;\n    padding: 0;\n    opacity: 0;\n    z-index: 2; }\n  .cd-form input[type=\"radio\"] + label,\n  .cd-form input[type=\"checkbox\"] + label {\n    padding-left: 24px; }\n  .cd-form input[type=\"radio\"] + label::before,\n  .cd-form input[type=\"radio\"] + label::after,\n  .cd-form input[type=\"checkbox\"] + label::before,\n  .cd-form input[type=\"checkbox\"] + label::after {\n    /* custom radio and check boxes */\n    content: '';\n    display: block;\n    position: absolute;\n    left: 0;\n    top: 50%;\n    margin-top: -8px;\n    width: 16px;\n    height: 16px; }\n  .cd-form input[type=\"radio\"] + label::before,\n  .cd-form input[type=\"checkbox\"] + label::before {\n    border: 1px solid #cfd9db;\n    background: #ffffff;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08); }\n  .cd-form input[type=\"radio\"] + label::before,\n  .cd-form input[type=\"radio\"] + label::after {\n    border-radius: 50%; }\n  .cd-form input[type=\"checkbox\"] + label::before,\n  .cd-form input[type=\"checkbox\"] + label::after {\n    border-radius: .25em; }\n  .cd-form input[type=\"radio\"] + label::after,\n  .cd-form input[type=\"checkbox\"] + label::after {\n    background-color: #2c97de;\n    background-position: center center;\n    background-repeat: no-repeat;\n    box-shadow: 0 0 5px rgba(44, 151, 222, 0.4);\n    display: none; }\n  .cd-form input[type=\"radio\"] + label::after {\n    /* custom image for radio button */\n    background-image: url(" + __webpack_require__(215) + "); }\n  .cd-form input[type=\"checkbox\"] + label::after {\n    /* custom image for checkbox */\n    background-image: url(" + __webpack_require__(216) + "); }\n  .cd-form input[type=\"radio\"]:focus + label::before,\n  .cd-form input[type=\"checkbox\"]:focus + label::before {\n    /* add focus effect for radio and check buttons */\n    box-shadow: 0 0 5px rgba(44, 151, 222, 0.6); }\n  .cd-form input[type=\"radio\"]:checked + label::after,\n  .cd-form input[type=\"checkbox\"]:checked + label::after {\n    display: block; }\n  .cd-form input[type=\"radio\"]:checked + label::before,\n  .cd-form input[type=\"radio\"]:checked + label::after,\n  .cd-form input[type=\"checkbox\"]:checked + label::before,\n  .cd-form input[type=\"checkbox\"]:checked + label::after {\n    -webkit-animation: cd-bounce 0.3s;\n    -moz-animation: cd-bounce 0.3s;\n    animation: cd-bounce 0.3s; }\n  .cd-form textarea {\n    min-height: 200px;\n    resize: vertical;\n    overflow: auto; }\n  .cd-form input[type=\"submit\"] {\n    /* button style */\n    border: none;\n    background: #2c97de;\n    border-radius: .25em;\n    padding: 16px 20px;\n    color: #ffffff;\n    font-weight: bold;\n    float: right;\n    cursor: pointer;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    -ms-appearance: none;\n    -o-appearance: none;\n    appearance: none; }\n    .no-touch .cd-form input[type=\"submit\"]:hover {\n      background: #42a2e1; }\n    .cd-form input[type=\"submit\"]:focus {\n      outline: none;\n      background: #2b3e51; }\n    .cd-form input[type=\"submit\"]:active {\n      -webkit-transform: scale(0.9);\n      -moz-transform: scale(0.9);\n      -ms-transform: scale(0.9);\n      -o-transform: scale(0.9);\n      transform: scale(0.9); }\n  .cd-form [required] {\n    background: url(" + __webpack_require__(217) + ") no-repeat top right; }\n  .cd-form .error-message p {\n    background: #e94b35;\n    color: #ffffff;\n    font-size: 1.4rem;\n    text-align: center;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    border-radius: .25em;\n    padding: 16px; }\n  .cd-form .error {\n    border-color: #e94b35 !important; }\n  @media only screen and (min-width: 768px) {\n    .cd-form div {\n      /* form element wrapper */\n      margin: 32px 0; }\n    .cd-form legend + div {\n      /* reduce margin-top for first form element after the legend */\n      margin-top: 20px; }\n    .cd-form h4, .cd-form .cd-label {\n      font-size: 1.4rem;\n      margin-bottom: 10px; }\n    .cd-form input[type=\"text\"],\n    .cd-form input[type=\"email\"],\n    .cd-form textarea,\n    .cd-form select {\n      padding: 16px; } }\n\n@-webkit-keyframes cd-bounce {\n  0%, 100% {\n    -webkit-transform: scale(1); }\n  50% {\n    -webkit-transform: scale(0.8); } }\n\n@-moz-keyframes cd-bounce {\n  0%, 100% {\n    -moz-transform: scale(1); }\n  50% {\n    -moz-transform: scale(0.8); } }\n\n@keyframes cd-bounce {\n  0%, 100% {\n    -webkit-transform: scale(1);\n    -moz-transform: scale(1);\n    -ms-transform: scale(1);\n    -o-transform: scale(1);\n    transform: scale(1); }\n  50% {\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    -ms-transform: scale(0.8);\n    -o-transform: scale(0.8);\n    transform: scale(0.8); } }\n\n/* --------------------------------\r\n\r\nCustom icons\r\n\r\n-------------------------------- */\n.cd-form .icon input, .cd-form .icon select, .cd-form .icon textarea {\n  padding-left: 54px !important; }\n\n.cd-form .user {\n  background: url(" + __webpack_require__(218) + ") no-repeat 16px center; }\n\n.cd-form [required].user {\n  background: url(" + __webpack_require__(218) + ") no-repeat 16px center, url(" + __webpack_require__(217) + ") no-repeat top right; }\n\n.cd-form .company {\n  background: url(" + __webpack_require__(219) + ") no-repeat 16px center; }\n\n.cd-form [required].company {\n  background: url(" + __webpack_require__(219) + ") no-repeat 16px center, url(" + __webpack_require__(217) + ") no-repeat top right; }\n\n.cd-form .email {\n  background: url(" + __webpack_require__(220) + ") no-repeat 16px center; }\n\n.cd-form [required].email {\n  background: url(" + __webpack_require__(220) + ") no-repeat 16px center, url(" + __webpack_require__(217) + ") no-repeat top right; }\n\n.cd-form .budget {\n  background: url(" + __webpack_require__(221) + ") no-repeat 16px center; }\n\n.cd-form .message {\n  background: url(" + __webpack_require__(222) + ") no-repeat 16px 16px; }\n\n.cd-form [required].message {\n  background: url(" + __webpack_require__(222) + ") no-repeat 16px 16px, url(" + __webpack_require__(217) + ") no-repeat top right; }\n\n/* --------------------------------\r\n\r\nFLoating labels\r\n\r\n-------------------------------- */\n.js .floating-labels div {\n  margin: 28px 0; }\n\n.js .floating-labels .cd-label {\n  position: absolute;\n  top: 16px;\n  left: 16px;\n  font-size: 1.6rem;\n  cursor: text;\n  -webkit-transition: top 0.2s, left 0.2s, font-size 0.2s;\n  -moz-transition: top 0.2s, left 0.2s, font-size 0.2s;\n  transition: top 0.2s, left 0.2s, font-size 0.2s; }\n\n.js .floating-labels .icon .cd-label {\n  left: 56px; }\n\n.js .floating-labels .cd-label.float {\n  /* move label out the input field */\n  font-size: 1.2rem;\n  top: -16px;\n  left: 0 !important; }\n\n@media only screen and (min-width: 768px) {\n  .js .floating-labels legend + div {\n    /* reduce margin-top for first form element after the legend */\n    margin-top: 16px; }\n  .js .floating-labels .cd-label {\n    top: 20px; } }\n", ""]);
+	exports.push([module.id, "/* --------------------------------\r\n\r\nForm\r\n\r\n-------------------------------- */\n.cd-record {\n  width: 100%;\n  margin: 2em auto;\n  padding: 1em;\n  max-width: 768px;\n  background: #ffffff;\n  -moz-border-radius: 10px;\n  -webkit-border-radius: 10px;\n  border-radius: 10px; }\n  .cd-record.cd-not-active {\n    display: none; }\n\n.cd-record {\n  width: 100%;\n  max-width: 768px;\n  margin: 4em auto;\n  background: #aab7ab;\n  padding: 3em;\n  -moz-border-radius: 0.25em;\n  -webkit-border-radius: 0.25em;\n  border-radius: 0.25em; }\n\n.cd-form {\n  width: 90%;\n  max-width: 768px;\n  margin: 2em auto; }\n  .cd-form::after {\n    clear: both;\n    content: \"\";\n    display: table; }\n  .cd-form fieldset {\n    margin: 24px 0; }\n  .cd-form legend {\n    padding-bottom: 10px;\n    margin-bottom: 20px;\n    font-size: 2rem;\n    border-bottom: 1px solid #ecf0f1; }\n  .cd-form div {\n    /* form element wrapper */\n    position: relative;\n    margin: 20px 0; }\n  .cd-form h4, .cd-form .cd-label {\n    font-size: 1.3rem;\n    color: #94aab0;\n    margin-bottom: 10px; }\n  .cd-form .cd-label {\n    display: block; }\n  .cd-form input, .cd-form textarea, .cd-form select, .cd-form label {\n    font-family: \"PT Sans\", sans-serif;\n    font-size: 1.6rem;\n    color: #2b3e51; }\n  .cd-form input[type=\"text\"],\n  .cd-form input[type=\"email\"],\n  .cd-form textarea,\n  .cd-form select,\n  .cd-form legend {\n    display: block;\n    width: 100%;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    -ms-appearance: none;\n    -o-appearance: none;\n    appearance: none; }\n  .cd-form input[type=\"text\"],\n  .cd-form input[type=\"email\"],\n  .cd-form textarea,\n  .cd-form select {\n    /* general style for input elements */\n    padding: 12px;\n    border: 1px solid #cfd9db;\n    background-color: #ffffff;\n    border-radius: .25em;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08); }\n    .cd-form input[type=\"text\"]:focus,\n    .cd-form input[type=\"email\"]:focus,\n    .cd-form textarea:focus,\n    .cd-form select:focus {\n      outline: none;\n      border-color: #2c97de;\n      box-shadow: 0 0 5px rgba(44, 151, 222, 0.2); }\n  .cd-form .cd-select {\n    /* select element wapper */\n    position: relative; }\n    .cd-form .cd-select::after {\n      /* arrow icon for select element */\n      content: '';\n      position: absolute;\n      z-index: 1;\n      right: 16px;\n      top: 50%;\n      margin-top: -8px;\n      display: block;\n      width: 16px;\n      height: 16px;\n      background: url(" + __webpack_require__(217) + ") no-repeat center center;\n      pointer-events: none; }\n  .cd-form select {\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);\n    cursor: pointer; }\n  .cd-form select::-ms-expand {\n    display: none; }\n  .cd-form .cd-form-list {\n    margin-top: 16px; }\n    .cd-form .cd-form-list::after {\n      clear: both;\n      content: \"\";\n      display: table; }\n  .cd-form .cd-form-list li {\n    /* wrapper for radio and checkbox input types */\n    display: inline-block;\n    position: relative;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    margin: 0 26px 16px 0;\n    float: left; }\n  .cd-form input[type=radio],\n  .cd-form input[type=checkbox] {\n    /* hide original check and radio buttons */\n    position: absolute;\n    left: 0;\n    top: 50%;\n    -webkit-transform: translateY(-50%);\n    -moz-transform: translateY(-50%);\n    -ms-transform: translateY(-50%);\n    -o-transform: translateY(-50%);\n    transform: translateY(-50%);\n    margin: 0;\n    padding: 0;\n    opacity: 0;\n    z-index: 2; }\n  .cd-form input[type=\"radio\"] + label,\n  .cd-form input[type=\"checkbox\"] + label {\n    padding-left: 24px; }\n  .cd-form input[type=\"radio\"] + label::before,\n  .cd-form input[type=\"radio\"] + label::after,\n  .cd-form input[type=\"checkbox\"] + label::before,\n  .cd-form input[type=\"checkbox\"] + label::after {\n    /* custom radio and check boxes */\n    content: '';\n    display: block;\n    position: absolute;\n    left: 0;\n    top: 50%;\n    margin-top: -8px;\n    width: 16px;\n    height: 16px; }\n  .cd-form input[type=\"radio\"] + label::before,\n  .cd-form input[type=\"checkbox\"] + label::before {\n    border: 1px solid #cfd9db;\n    background: #ffffff;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08); }\n  .cd-form input[type=\"radio\"] + label::before,\n  .cd-form input[type=\"radio\"] + label::after {\n    border-radius: 50%; }\n  .cd-form input[type=\"checkbox\"] + label::before,\n  .cd-form input[type=\"checkbox\"] + label::after {\n    border-radius: .25em; }\n  .cd-form input[type=\"radio\"] + label::after,\n  .cd-form input[type=\"checkbox\"] + label::after {\n    background-color: #2c97de;\n    background-position: center center;\n    background-repeat: no-repeat;\n    box-shadow: 0 0 5px rgba(44, 151, 222, 0.4);\n    display: none; }\n  .cd-form input[type=\"radio\"] + label::after {\n    /* custom image for radio button */\n    background-image: url(" + __webpack_require__(218) + "); }\n  .cd-form input[type=\"checkbox\"] + label::after {\n    /* custom image for checkbox */\n    background-image: url(" + __webpack_require__(219) + "); }\n  .cd-form input[type=\"radio\"]:focus + label::before,\n  .cd-form input[type=\"checkbox\"]:focus + label::before {\n    /* add focus effect for radio and check buttons */\n    box-shadow: 0 0 5px rgba(44, 151, 222, 0.6); }\n  .cd-form input[type=\"radio\"]:checked + label::after,\n  .cd-form input[type=\"checkbox\"]:checked + label::after {\n    display: block; }\n  .cd-form input[type=\"radio\"]:checked + label::before,\n  .cd-form input[type=\"radio\"]:checked + label::after,\n  .cd-form input[type=\"checkbox\"]:checked + label::before,\n  .cd-form input[type=\"checkbox\"]:checked + label::after {\n    -webkit-animation: cd-bounce 0.3s;\n    -moz-animation: cd-bounce 0.3s;\n    animation: cd-bounce 0.3s; }\n  .cd-form textarea {\n    min-height: 200px;\n    resize: vertical;\n    overflow: auto; }\n  .cd-form input[type=\"submit\"] {\n    /* button style */\n    border: none;\n    background: #2c97de;\n    border-radius: .25em;\n    padding: 16px 20px;\n    color: #ffffff;\n    font-weight: bold;\n    float: right;\n    cursor: pointer;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    -ms-appearance: none;\n    -o-appearance: none;\n    appearance: none; }\n    .no-touch .cd-form input[type=\"submit\"]:hover {\n      background: #42a2e1; }\n    .cd-form input[type=\"submit\"]:focus {\n      outline: none;\n      background: #2b3e51; }\n    .cd-form input[type=\"submit\"]:active {\n      -webkit-transform: scale(0.9);\n      -moz-transform: scale(0.9);\n      -ms-transform: scale(0.9);\n      -o-transform: scale(0.9);\n      transform: scale(0.9); }\n  .cd-form [required] {\n    background: url(" + __webpack_require__(220) + ") no-repeat top right; }\n  .cd-form .error-message p {\n    background: #e94b35;\n    color: #ffffff;\n    font-size: 1.4rem;\n    text-align: center;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    border-radius: .25em;\n    padding: 16px; }\n  .cd-form .error {\n    border-color: #e94b35 !important; }\n  @media only screen and (min-width: 768px) {\n    .cd-form div {\n      /* form element wrapper */\n      margin: 32px 0; }\n    .cd-form legend + div {\n      /* reduce margin-top for first form element after the legend */\n      margin-top: 20px; }\n    .cd-form h4, .cd-form .cd-label {\n      font-size: 1.4rem;\n      margin-bottom: 10px; }\n    .cd-form input[type=\"text\"],\n    .cd-form input[type=\"email\"],\n    .cd-form textarea,\n    .cd-form select {\n      padding: 16px; } }\n\n@-webkit-keyframes cd-bounce {\n  0%, 100% {\n    -webkit-transform: scale(1); }\n  50% {\n    -webkit-transform: scale(0.8); } }\n\n@-moz-keyframes cd-bounce {\n  0%, 100% {\n    -moz-transform: scale(1); }\n  50% {\n    -moz-transform: scale(0.8); } }\n\n@keyframes cd-bounce {\n  0%, 100% {\n    -webkit-transform: scale(1);\n    -moz-transform: scale(1);\n    -ms-transform: scale(1);\n    -o-transform: scale(1);\n    transform: scale(1); }\n  50% {\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    -ms-transform: scale(0.8);\n    -o-transform: scale(0.8);\n    transform: scale(0.8); } }\n\n/* --------------------------------\r\n\r\nCustom icons\r\n\r\n-------------------------------- */\n.cd-form .icon input, .cd-form .icon select, .cd-form .icon textarea {\n  padding-left: 54px !important; }\n\n.cd-form .user {\n  background: url(" + __webpack_require__(221) + ") no-repeat 16px center; }\n\n.cd-form [required].user {\n  background: url(" + __webpack_require__(221) + ") no-repeat 16px center, url(" + __webpack_require__(220) + ") no-repeat top right; }\n\n.cd-form .company {\n  background: url(" + __webpack_require__(222) + ") no-repeat 16px center; }\n\n.cd-form [required].company {\n  background: url(" + __webpack_require__(222) + ") no-repeat 16px center, url(" + __webpack_require__(220) + ") no-repeat top right; }\n\n.cd-form .email {\n  background: url(" + __webpack_require__(223) + ") no-repeat 16px center; }\n\n.cd-form [required].email {\n  background: url(" + __webpack_require__(223) + ") no-repeat 16px center, url(" + __webpack_require__(220) + ") no-repeat top right; }\n\n.cd-form .budget {\n  background: url(" + __webpack_require__(224) + ") no-repeat 16px center; }\n\n.cd-form .message {\n  background: url(" + __webpack_require__(225) + ") no-repeat 16px 16px; }\n\n.cd-form [required].message {\n  background: url(" + __webpack_require__(225) + ") no-repeat 16px 16px, url(" + __webpack_require__(220) + ") no-repeat top right; }\n\n/* --------------------------------\r\n\r\nFLoating labels\r\n\r\n-------------------------------- */\n.js .floating-labels div {\n  margin: 28px 0; }\n\n.js .floating-labels .cd-label {\n  position: absolute;\n  top: 16px;\n  left: 16px;\n  font-size: 1.6rem;\n  cursor: text;\n  -webkit-transition: top 0.2s, left 0.2s, font-size 0.2s;\n  -moz-transition: top 0.2s, left 0.2s, font-size 0.2s;\n  transition: top 0.2s, left 0.2s, font-size 0.2s; }\n\n.js .floating-labels .icon .cd-label {\n  left: 56px; }\n\n.js .floating-labels .cd-label.float {\n  /* move label out the input field */\n  font-size: 1.2rem;\n  top: -16px;\n  left: 0 !important; }\n\n@media only screen and (min-width: 768px) {\n  .js .floating-labels legend + div {\n    /* reduce margin-top for first form element after the legend */\n    margin-top: 16px; }\n  .js .floating-labels .cd-label {\n    top: 20px; } }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 214 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dist/50669e8531eb7be3e20116a637b504cc.svg"
 
 /***/ },
-/* 215 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dist/5dfc031e2a88fa37d93d9af9d96bca35.svg"
 
 /***/ },
-/* 216 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dist/5af6aa5ab48c41c190099e9ae8976dd3.svg"
 
 /***/ },
-/* 217 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dist/a11821f88ef541604c5164293c3e0496.svg"
 
 /***/ },
-/* 218 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dist/65d9b1282a637ddcd89d018ccb98d706.svg"
 
 /***/ },
-/* 219 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dist/9066510273ad27cae9adfc33eb051fb0.svg"
 
 /***/ },
-/* 220 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dist/b10a6f60e40229500867d8a0c264f22f.svg"
 
 /***/ },
-/* 221 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dist/362e2c1aefed488f71b749fc804fa834.svg"
 
 /***/ },
-/* 222 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dist/bba4338a1a01b79b8b38d55b368151d1.svg"
 
 /***/ },
-/* 223 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24438,12 +24565,12 @@
 	var React = __webpack_require__(1);
 	var Router = __webpack_require__(157);
 
-	var UserPorfile = __webpack_require__(224);
-	var Notes = __webpack_require__(225);
-	var Repos = __webpack_require__(227);
+	var UserPorfile = __webpack_require__(227);
+	var Notes = __webpack_require__(228);
+	var Repos = __webpack_require__(230);
 
-	var ReactFireMixin = __webpack_require__(228);
-	var Firebase = __webpack_require__(229);
+	var ReactFireMixin = __webpack_require__(231);
+	var Firebase = __webpack_require__(232);
 
 	var Profile = React.createClass({
 	    displayName: 'Profile',
@@ -24494,7 +24621,7 @@
 	module.exports = Profile;
 
 /***/ },
-/* 224 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24528,13 +24655,13 @@
 	module.exports = UserProfile;
 
 /***/ },
-/* 225 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var NotesList = __webpack_require__(226);
+	var NotesList = __webpack_require__(229);
 
 	var Notes = React.createClass({
 		displayName: 'Notes',
@@ -24563,7 +24690,7 @@
 	module.exports = Notes;
 
 /***/ },
-/* 226 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24593,7 +24720,7 @@
 	module.exports = NotesList;
 
 /***/ },
-/* 227 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24620,7 +24747,7 @@
 	module.exports = Repos;
 
 /***/ },
-/* 228 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -24991,7 +25118,7 @@
 
 
 /***/ },
-/* 229 */
+/* 232 */
 /***/ function(module, exports) {
 
 	/*! @license Firebase v2.2.9

@@ -24,34 +24,56 @@ jQuery(document).ready(function($){
 		});
 	}
 
-
-	// 3D导航控制
-	$('.cd-3d-nav-trigger').on('click', function(){
-		toggle3dBlock(!$('.cd-header').hasClass('nav-is-visible'));
-	});
-
-	//select a new item from the 3d navigation
-	$('.cd-3d-nav').on('click', 'a', function(){
-		var selected = $(this);
-		selected.parent('li').addClass('cd-selected').siblings('li').removeClass('cd-selected');
-		updateSelectedNav('close');
-	});
-
+	// 导航相关逻辑
+	//move nav element position according to window width
+	moveNavigation();
 	$(window).on('resize', function(){
-		window.requestAnimationFrame(updateSelectedNav);
+		(!window.requestAnimationFrame) ? setTimeout(moveNavigation, 300) : window.requestAnimationFrame(moveNavigation);
 	});
 
-	function toggle3dBlock(addOrRemove) {
-		if(typeof(addOrRemove)==='undefined') addOrRemove = true;
-		$('.cd-header').toggleClass('nav-is-visible', addOrRemove);
-		$('.cd-3d-nav-container').toggleClass('nav-is-visible', addOrRemove);
-		$('main').toggleClass('nav-is-visible', addOrRemove).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
-			//fix marker position when opening the menu (after a window resize)
-			addOrRemove && updateSelectedNav();
-		});
+	//mobile version - open/close navigation
+	$('.cd-nav-trigger').on('click', function(event){
+		event.preventDefault();
+		if($('header').hasClass('nav-is-visible')) $('.moves-out').removeClass('moves-out');
+
+		$('header').toggleClass('nav-is-visible');
+		$('.cd-main-nav').toggleClass('nav-is-visible');
+		$('.cd-main-content').toggleClass('nav-is-visible');
+	});
+
+	//mobile version - go back to main navigation
+	$('.go-back').on('click', function(event){
+		event.preventDefault();
+		$('.cd-main-nav').removeClass('moves-out');
+	});
+
+	//open sub-navigation
+	$('.cd-subnav-trigger').on('click', function(event){
+		event.preventDefault();
+		$('.cd-main-nav').toggleClass('moves-out');
+	});
+
+	function moveNavigation(){
+		var navigation = $('.cd-main-nav-wrapper');
+		var screenSize = checkWindowWidth();
+		if ( screenSize ) {
+			//desktop screen - insert navigation inside header element
+			navigation.detach();
+			navigation.insertBefore('.cd-nav-trigger');
+		} else {
+			//mobile screen - insert navigation after .cd-main-content element
+			navigation.detach();
+			navigation.insertAfter('.cd-main-content');
+		}
 	}
 
-	//this function update the .cd-marker position
+	function checkWindowWidth() {
+		var mq = window.getComputedStyle(document.querySelector('header'), '::before').getPropertyValue('content').replace(/"/g, '').replace(/'/g, "");
+		return ( mq == 'mobile' ) ? false : true;
+	}
+
+
+	//输入框相关逻辑
 	function updateSelectedNav(type) {
 		var selectedItem = $('.cd-selected'),
 			selectedItemPosition = selectedItem.index() + 1,

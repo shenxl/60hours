@@ -16,14 +16,6 @@
   border-radius: $radius;
 }
 
-// ¿çä¯ÀÀÆ÷Ô²½Ç±ß¿ò
-@mixin rounded-corners {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
-
-
 // center vertically and/or horizontally an absolute positioned element
 
 @mixin center($xy:xy) {
@@ -53,4 +45,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+// è¾¹æ¡†åœ†è§’
+@mixin rounded-corners($corner:.25em) {
+  -moz-border-radius: $corner;
+  -webkit-border-radius: $corner;
+  border-radius: $corner;
+}
 
