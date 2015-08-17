@@ -11,7 +11,6 @@ var TimelineBlock = React.createClass({
             'cd-sadly': this.props.todoItem.status === 2,
         });
 
-
         return (
             <div className="cd-timeline-block">
                 <div className={img_classes}>

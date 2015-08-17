@@ -12,7 +12,7 @@ var Home = React.createClass({
 
 
     render:function(){
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 40; i++) {
             this.state.todoList.push({
                 title: "Title of section " + i,
                 details: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut." +
@@ -24,7 +24,6 @@ var Home = React.createClass({
 
         return (
             <div>
-                <CreateRecord/>
                 <TimelineContainer todoList={this.state.todoList} />
             </div>
         )
