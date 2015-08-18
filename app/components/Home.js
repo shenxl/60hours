@@ -1,8 +1,13 @@
 var React = require('react');
 var TimelineContainer = require('./TimeLine/TimelineContainer');
-var CreateRecord  =require('./Record/CreateRecord');
+
+var ReactFireMixin = require('reactfire');
+var Firebase = require('firebase');
+
 
 var Home = React.createClass({
+
+    mixins: [ReactFireMixin],
 
     getInitialState: function () {
         return {
@@ -11,20 +16,16 @@ var Home = React.createClass({
     },
 
 
+    componentDidMount: function() {
+        this.ref = new Firebase('https://taketimes.firebaseio.com');
+        var childRef = this.ref.child("timeLine");
+        this.bindAsArray(childRef.orderByChild("recordDate"),'todoList');
+    },
+
     render:function(){
-        for (var i = 0; i < 10; i++) {
-            this.state.todoList.push({
-                title: "Title of section " + i,
-                details: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut." +
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.",
-                dateTime: "Jan " + i,
-                status:i%3
-            });
-        }
 
         return (
             <div>
-                <CreateRecord/>
                 <TimelineContainer todoList={this.state.todoList} />
             </div>
         )

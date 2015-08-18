@@ -1,8 +1,12 @@
 var React = require('react');
-var AddRecord = React.createClass({
-    handleAdd:function(){
-        alert('AA');
+var Router = require('react-router');
+var Navigation = Router.Navigation;
 
+var AddRecord = React.createClass({
+    mixins:[Navigation],
+
+    handleAdd:function(){
+        this.transitionTo('record');
     },
 
 	render: function() {
