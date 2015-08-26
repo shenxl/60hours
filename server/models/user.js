@@ -25,6 +25,10 @@ var UserSchema = new Schema({
     }
 });
 
+
+// =================================================================
+// 用户 保存前对密码加密========================================
+// =================================================================
 UserSchema.pre('save', function (next) {
     var user = this;
     if (this.isModified('password') || this.isNew) {
@@ -45,6 +49,9 @@ UserSchema.pre('save', function (next) {
     }
 });
 
+// =================================================================
+// 登陆时需要判断密码是否一致========================================
+// =================================================================
 UserSchema.methods.comparePassword = function (passw, cb) {
     bcrypt.compare(passw, this.password, function (err, isMatch) {
         if (err) {

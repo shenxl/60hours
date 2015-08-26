@@ -1,5 +1,9 @@
 "use strict";
 
+/*
+    redis的工具类。
+ */
+
 var debug = require('debug')('app:utils:' + process.pid),
     path = require('path'),
     util = require('util'),
@@ -20,6 +24,9 @@ client.on('connect', function () {
     debug("Redis successfully connected");
 });
 
+/*
+    从客户端上传的header中获得token。
+ */
 module.exports.fetch = function (headers) {
     if (headers && headers.authorization) {
         var authorization = headers.authorization;
@@ -35,6 +42,9 @@ module.exports.fetch = function (headers) {
     }
 };
 
+/*
+    根据user的ID 通过jwt生成token,并在redis中记录 {key : token , value: data}
+ */
 module.exports.create = function (user, req, res, next) {
 
     debug("Create token");
@@ -88,6 +98,9 @@ module.exports.create = function (user, req, res, next) {
 
 };
 
+/*
+    从redis中检索token
+ */
 module.exports.retrieve = function (id, done) {
 
     debug("Calling retrieve for token: %s", id);
@@ -127,6 +140,11 @@ module.exports.retrieve = function (id, done) {
 
 };
 
+
+
+/*
+ 调用 JWT的verify验证token与用户的关系是否一致
+ */
 module.exports.verify = function (req, res, next) {
 
     debug("Verifying token");
@@ -155,6 +173,9 @@ module.exports.verify = function (req, res, next) {
     });
 };
 
+/*
+   退出时设置redis的相关键值对立即过期
+ */
 module.exports.expire = function (headers) {
 
     var token = exports.fetch(headers);
@@ -169,6 +190,9 @@ module.exports.expire = function (headers) {
 
 };
 
+/*
+ 中间件 供外部调用
+ */
 module.exports.middleware = function () {
 
     var func = function (req, res, next) {

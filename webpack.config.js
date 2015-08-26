@@ -10,7 +10,7 @@ var config = {
         loaders:[
             {
                 test:/\.jsx?$/,
-                exclude:/(node_modules|bower_components)/,
+                exclude:/(node_modules|bower_components|server)/,
                 loader:'babel-loader'
             },
 

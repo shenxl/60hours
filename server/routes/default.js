@@ -59,6 +59,10 @@ module.exports = function () {
         return res.status(200).json(undefined);
     });
 
+    router.route("/hello").get(utils.verify,function(req,res,next){
+        return res.status(200).json({message:"hello world"});
+    });
+
     router.route("/logout").get(function (req, res, next) {
         if (utils.expire(req.headers)) {
             delete req.user;

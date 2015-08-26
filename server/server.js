@@ -1,5 +1,8 @@
 "use strict";
 
+// =================================================================
+// get the packages we need ========================================
+// =================================================================
 var debug = require('debug')('app:' + process.pid),
     path = require("path"),
     fs = require("fs"),
@@ -13,9 +16,9 @@ var debug = require('debug')('app:' + process.pid),
     utils = require(path.join(__dirname, "utils.js")),
     unless = require('express-unless');
 
-debug("应用启动!");
-
-debug("加载 Mongoose");
+// =================================================================
+// 数据库连接 准备========================================
+// =================================================================
 
 var mongoose = require('mongoose');
 mongoose.set('debug', true);
@@ -27,7 +30,9 @@ mongoose.connection.once('open', function callback() {
     debug("Mongoose 已经连接到数据库");
 });
 
-debug("初始化 express");
+// =================================================================
+// express 初始化========================================
+// =================================================================
 var express = require('express'), app = express();
 
 debug("加载插件");
@@ -37,6 +42,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(require('compression')());
 app.use(require('response-time')());
+
 
 app.use(function (req, res, next) {
 
@@ -48,6 +54,9 @@ app.use(function (req, res, next) {
 
 });
 
+// =================================================================
+// JWT 验证过滤========================================
+// =================================================================
 var jwtCheck = jwt({
     secret: config.secret
 });
@@ -59,18 +68,22 @@ app.use(utils.middleware().unless({path: '/api/login' }));
 
 app.use("/api", require(path.join(__dirname, "routes", "default.js"))());
 
-// all other requests redirect to 404
+// =================================================================
+// 404 处理========================================
+// =================================================================
 app.all("*", function (req, res, next) {
     next(new NotFoundError("404"));
 });
 
-// error handler for all the applications
+// =================================================================
+// 异常 处理========================================
+// =================================================================
 app.use(function (err, req, res, next) {
 
     var errorType = typeof err,
         code = 500,
         msg = { message: "Internal Server Error" };
-
+    console.log(err);
     switch (err.name) {
         case "UnauthorizedError":
             code = err.status;
@@ -90,12 +103,16 @@ app.use(function (err, req, res, next) {
 
 });
 
-debug("Creating HTTP server on port: %s", http_port);
+// =================================================================
+// http 连接========================================
+// =================================================================
 require('http').createServer(app).listen(http_port, function () {
     debug("HTTP Server listening on port: %s, in %s mode", http_port, app.get('env'));
 });
 
-debug("Creating HTTPS server on port: %s", https_port);
+// =================================================================
+// https 连接========================================
+// =================================================================
 require('https').createServer({
     key: fs.readFileSync(path.join(__dirname, "keys", "server.key")),
     cert: fs.readFileSync(path.join(__dirname, "keys", "server.crt")),
