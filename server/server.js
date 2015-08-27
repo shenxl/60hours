@@ -83,7 +83,7 @@ app.use(function (err, req, res, next) {
     var errorType = typeof err,
         code = 500,
         msg = { message: "Internal Server Error" };
-    console.log(err);
+
     switch (err.name) {
         case "UnauthorizedError":
             code = err.status;
