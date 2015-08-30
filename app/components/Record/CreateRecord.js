@@ -16,7 +16,7 @@ var RadioButton = mui.RadioButton;
 var TextField = mui.TextField;
 
 
-require('../../assets/styles/record.scss');
+require('./record.scss');
 
 var injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();

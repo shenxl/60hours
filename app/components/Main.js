@@ -1,5 +1,5 @@
 var React = require('react');
-var Header = require('./Header');
+var Header = require('./Header/Header');
 var RouteHandler = require('react-router').RouteHandler;
 
 var Main = React.createClass({

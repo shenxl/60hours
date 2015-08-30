@@ -1,7 +1,7 @@
 var React = require('react');
 var TimelineBlock = require('./TimelineBlock');
 var AddRecord = require('./AddRecord');
-require('../../assets/styles/timeLine.scss');
+require('./timeLine.scss');
 
 
 var TimelineContainer = React.createClass({

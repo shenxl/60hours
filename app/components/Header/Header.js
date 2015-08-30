@@ -2,7 +2,7 @@ var React = require('react');
 var Nav = require('./Nav');
 
 // 加载Css样式
-require('../assets/styles/headerNav.scss');
+require('./headerNav.scss');
 var Header = React.createClass({
 
 	render: function() {
