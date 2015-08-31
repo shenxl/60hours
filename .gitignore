@@ -4,3 +4,4 @@ node_modules
 .idea
 public/bundle.js
 public/dist
+npm-debug.log

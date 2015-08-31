@@ -1,17 +1,27 @@
 var path = require('path');
+var webpack = require('webpack');
+
 
 var config = {
-    entry:path.resolve(__dirname, 'app/App.js'),
+    entry:[
+        'webpack-dev-server/client?http://localhost:3000',
+        'webpack/hot/only-dev-server',
+        path.join(__dirname, 'app/App.js')],
     output:{
-        path: path.resolve(__dirname, 'public'),
-        filename:"bundle.js"
+        path: path.join(__dirname, 'dist'),
+        filename:"bundle.js",
+        publicPath: '/static/'
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ],
     module:{
         loaders:[
             {
                 test:/\.jsx?$/,
-                exclude:/(node_modules|bower_components|server)/,
-                loader:'babel-loader'
+                include: path.join(__dirname, 'app'),
+                //exclude:/(node_modules|bower_components|server)/,
+                loaders: ['react-hot', 'babel']
             },
 
             // SASS

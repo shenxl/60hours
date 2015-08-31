@@ -6,7 +6,6 @@
 
 var debug = require('debug')('app:utils:' + process.pid),
     path = require('path'),
-    util = require('util'),
     redis = require("redis"),
     client = redis.createClient(),
     _ = require("lodash"),
